@@ -11,10 +11,120 @@ function App() {
 
   const [dataCollection, setDataCollection] = useState(null)
 
-  const data = {}
+  const data = [];
+
+  // Questions name array
+
+  const personalDetails_names = ['title', 'forename', 'middlename', 'surname', 'current_address', 'phone_number',
+    'email_address', 'nationality', 'years', 'months', 'ni_number', 'required_tenancy_term', 'required_move_in_date'
+  ];
+  const addressHistory_names = [
+    'previous_address_1', 'years_1', 'months_1', 'postcode_1', 'type_1', 
+    'previous_address_2', 'years_2', 'months_2', 'postcode_2', 'type_2',
+    'previous_address_3', 'years_3', 'months_3', 'postcode_3', 'type_3'
+  ];
+  const creditCheck_names = [
+    'has_been_declared_bankrupt', 'declared_bankrupt_details', 
+    'has_ever_entered_into_an_IVA', 'IVA_details',
+    'has_rented_a_property_in_the_past', 'rented_property_details', 
+    'has_been_in_arrears_with_another_landlord', 'landlord_arrears_details',
+    'has_been_a_named_person_on_morgage', 'named_person_on_morgage_details',
+    'has_had_any_CJJs', 'CJJs_details'
+  ];
+  const bankAccount_names = [
+    'account_name', 'bank_name',
+    'account_number', 'sort_code',
+    'bank_years', 'bank_months'
+  ];
+  const employment_names = [
+    'employedFT', 'self_employed', 'zero_hours',
+    'employedPT', 'unemployed', 'retired',
+    'agency_worker', 'temporary_contract', 'prefer_not_to_say',
+
+    'annual_salary', 'company_name', 'company_address', 'postcode', 'reference_name', 'reference_contact_number', 'reference_contact_email'
+  ];
+  const otherOccupants_names = [
+    'occupant_1', 'occupant_2', 'occupant_3', 'occupant_4', 'occupant_5','occupant_6',
+  ];
+  const references_names = [
+    'referee_name_1', 'referee_contact_number_1', 'referee_address_1', 'postcode_1', 'relationship_to_you_1',
+    'referee_name_2', 'referee_contact_number_2', 'referee_address_2', 'postcode_2', 'relationship_to_you_2'
+  ];
+  const emergencyContact_names = [
+    'contact_name', 'contact_number', 'contact_address', 'postcode', 'relationship_to_you'
+  ];
+  const decleration_names = [
+    'signature', 'full_name', 'date', 'additional_comments'
+  ];
+
+  const personalDetails = {};
+  const addressHistory = {};
+  const creditCheck = {};
+  const bankAccount = {};
+  const employment = {};
+  const otherOccupants = {};
+  const references = {};
+  const emergencyContact = {};
+  const decleration = {};
 
   const handleChange = (e) => {
-    data[e.target.name] = e.target.value;
+    
+    personalDetails_names.forEach(name => {
+      if (e.target.name === name ) {
+        personalDetails[e.target.name] = e.target.value;
+        console.log(personalDetails);
+      }
+    });
+    addressHistory_names.forEach(name => {
+      if (e.target.name === name ) {
+        addressHistory[e.target.name] = e.target.value;
+        console.log(addressHistory);
+      }
+    });
+    creditCheck_names.forEach(name => {
+      if (e.target.name === name ) {
+        creditCheck[e.target.name] = e.target.value;
+        creditCheck[e.target.name] = e.target.checked;
+        console.log(creditCheck);
+      }
+    });
+    bankAccount_names.forEach(name => {
+      if (e.target.name === name ) {
+        bankAccount[e.target.name] = e.target.value;
+        bankAccount[e.target.name] = e.target.checked;
+        console.log(bankAccount);
+      }
+    });
+    employment_names.forEach(name => {
+      if (e.target.name === name ) {
+        employment[e.target.name] = e.target.value;
+        console.log(employment);
+      }
+    });
+    otherOccupants_names.forEach(name => {
+      if (e.target.name === name ) {
+        otherOccupants[e.target.name] = e.target.value;
+        console.log(otherOccupants);
+      }
+    });
+    references_names.forEach(name => {
+      if (e.target.name === name ) {
+        references[e.target.name] = e.target.value;
+        console.log(references);
+      }
+    });
+    emergencyContact_names.forEach(name => {
+      if (e.target.name === name ) {
+        emergencyContact[e.target.name] = e.target.value;
+        console.log(emergencyContact);
+      }
+    });
+    decleration_names.forEach(name => {
+      if (e.target.name === name ) {
+        decleration[e.target.name] = e.target.value;
+        console.log(decleration);
+      }
+    });
   }
 
   const handleCheckbox = (e) => {
@@ -22,7 +132,8 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+    data.push(personalDetails, addressHistory, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration);
     setDataCollection(data);
     console.log(dataCollection);
   }
@@ -43,33 +154,33 @@ function App() {
           <div className="contentContainer">
             <h1>Section One - Personal Details</h1>
             <div className="rowOne">
-              <StandardInput title="Title" className="title" name="title" onChange={handleChange} />
-              <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} />
+              <StandardInput title="Title" className="title" name="title" onChange={handleChange} required="required"/>
+              <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} required="required"/>
               <StandardInput title="Middle name" className="middlename" name="middlename" onChange={handleChange} />
-              <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} />
+              <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} required="required"/>
             </div>
             <div className="rowTwo">
-              <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} />
+              <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required"/>
               <div>
-                <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} />
-                <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} />
+                <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required"/>
+                <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required"/>
               </div>
             </div>
             <div className="rowThree">
-              <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} />
-              <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} />
+              <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required"/>
+              <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required"/>
             </div>
             <p>Time at above address</p>
             <div className="rowFour">
               <div className="flexLabels">
-                <SideLabelInput titleRight="Years" className="years" name="years" onChange={handleChange} />
-                <SideLabelInput titleRight="Months" className="months" name="months" onChange={handleChange} />
+                <SideLabelInput titleRight="Years" className="years" name="years" onChange={handleChange} required="required"/>
+                <SideLabelInput titleRight="Months" className="months" name="months" onChange={handleChange} required="required"/>
               </div>
             </div>
             <div className="rowFive">
-              <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} />
-              <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} />
-              <StandardInput title="Required move in date" className="requiredMoveInDate" name="required_move_in_date" onChange={handleChange} />
+              <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} required="required"/>
+              <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} required="required"/>
+              <StandardInput title="Required move in date" className="requiredMoveInDate" name="required_move_in_date" onChange={handleChange} required="required"/>
             </div>
           </div>
         </div>
@@ -207,16 +318,16 @@ function App() {
               <div className="row">
                 <div className="upper">
                   <SideLabelInput titleLeft="Account Name" className="accountName" name="account_name" />
-                  <SideLabelInput titleLeft="Bank Name" className="bankName" name="bankName" />
+                  <SideLabelInput titleLeft="Bank Name" className="bankName" name="bank_name" />
                 </div>
                 <div className="middle">
-                  <SideLabelInput titleLeft="Account Number" className="accountName" name="account_name" />
-                  <SideLabelInput titleLeft="Sort Code" className="bankName" name="bankName" />
+                  <SideLabelInput titleLeft="Account Number" className="accountName" name="account_number" />
+                  <SideLabelInput titleLeft="Sort Code" className="bankName" name="sort_code" />
                 </div>
                 <div className="lower">
                   <p>How long have you banked here?</p>
-                  <SideLabelInput titleRight="Years" className="accountName" name="account_name" />
-                  <SideLabelInput titleRight="Months" className="bankName" name="bankName" />
+                  <SideLabelInput titleRight="Years" className="accountName" name="bank_years" />
+                  <SideLabelInput titleRight="Months" className="bankName" name="bank_months" />
                 </div>
               </div>
             </div>
@@ -260,7 +371,7 @@ function App() {
             <label>Company Address</label>
             <input type="text" name="company_address" onChange={handleChange} style={{ gridColumn: '2/3' }} />
             <label>Postcode</label>
-            <input type="text" name="postcode" onChange={handleChange} style={{ gridColumn: '2/3', width: '10%' }} />
+            <input type="text" name="postcode" className="postcode" onChange={handleChange} style={{ gridColumn: '2/3'}} />
             <label>Reference Name</label>
             <input type="text" name="reference_name" onChange={handleChange} style={{ gridColumn: '2/3' }} />
             <label>Reference Contact Number</label>
@@ -301,7 +412,7 @@ function App() {
               <label>Referee Address</label>
               <input type="text" name="referee_address_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode_1" style={{ gridColumn: '2/3', width: '10%' }} onChange={handleChange} />
+              <input type="text" name="postcode_1" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Their relationship to you</label>
               <input type="text" name="relationship_to_you_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
             </div>
@@ -314,7 +425,7 @@ function App() {
               <label>Referee Address</label>
               <input type="text" name="referee_address_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode_2" style={{ gridColumn: '2/3', width: '10%' }} onChange={handleChange} />
+              <input type="text" name="postcode_2" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Their relationship to you</label>
               <input type="text" name="relationship_to_you_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
             </div>
@@ -332,9 +443,9 @@ function App() {
               <label>Contact Address</label>
               <input type="text" name="contact_address" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="postcode" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
               <label>Their relationship to you</label>
-              <input type="text" name="relationship_to_you" style={{ gridColumn: '2/3', width: '25%' }} onChange={handleChange} />
+              <input type="text" name="relationship_to_you" style={{ gridColumn: '2/3' }} onChange={handleChange} />
             </div>
           </div>
         </div>

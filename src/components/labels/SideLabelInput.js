@@ -11,7 +11,7 @@ const SideLabelInput = (props) => {
             onChange={props.onChange} 
             value={props.value} 
             type="text" 
-            required
+            required={props.required}
             />
 
             {props.titleRight}</label>

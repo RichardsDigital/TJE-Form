@@ -10,7 +10,8 @@ const FieldInput = (props) => {
             onChange={props.onChange} 
             value={props.value} 
             type="text"
-            required/>
+            required={props.required}
+            />
         </div>
     )
 }

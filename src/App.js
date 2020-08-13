@@ -13,7 +13,7 @@ function App() {
 
   const data = [];
 
-  // Questions name array
+  // Questions name array --------------------
 
   const personalDetails_names = ['title', 'forename', 'middlename', 'surname', 'current_address', 'phone_number',
     'email_address', 'nationality', 'years', 'months', 'ni_number', 'required_tenancy_term', 'required_move_in_date'
@@ -57,6 +57,8 @@ function App() {
     'signature', 'full_name', 'date', 'additional_comments'
   ];
 
+  // Objects for placing specific data --------------------
+
   const personalDetails = {};
   const addressHistory = {};
   const creditCheck = {};
@@ -68,72 +70,81 @@ function App() {
   const decleration = {};
 
   const handleChange = (e) => {
+
+    // Soft inputs to their objects --------------------
     
     personalDetails_names.forEach(name => {
       if (e.target.name === name ) {
         personalDetails[e.target.name] = e.target.value;
-        console.log(personalDetails);
       }
     });
     addressHistory_names.forEach(name => {
       if (e.target.name === name ) {
         addressHistory[e.target.name] = e.target.value;
-        console.log(addressHistory);
       }
     });
     creditCheck_names.forEach(name => {
       if (e.target.name === name ) {
         creditCheck[e.target.name] = e.target.value;
-        creditCheck[e.target.name] = e.target.checked;
-        console.log(creditCheck);
       }
     });
     bankAccount_names.forEach(name => {
       if (e.target.name === name ) {
         bankAccount[e.target.name] = e.target.value;
-        bankAccount[e.target.name] = e.target.checked;
-        console.log(bankAccount);
       }
     });
     employment_names.forEach(name => {
       if (e.target.name === name ) {
         employment[e.target.name] = e.target.value;
-        console.log(employment);
       }
     });
     otherOccupants_names.forEach(name => {
       if (e.target.name === name ) {
         otherOccupants[e.target.name] = e.target.value;
-        console.log(otherOccupants);
       }
     });
     references_names.forEach(name => {
       if (e.target.name === name ) {
         references[e.target.name] = e.target.value;
-        console.log(references);
       }
     });
     emergencyContact_names.forEach(name => {
       if (e.target.name === name ) {
         emergencyContact[e.target.name] = e.target.value;
-        console.log(emergencyContact);
       }
     });
     decleration_names.forEach(name => {
       if (e.target.name === name ) {
         decleration[e.target.name] = e.target.value;
-        console.log(decleration);
       }
     });
   }
 
+  // Sort checkboxes to their objects --------------------
+
   const handleCheckbox = (e) => {
-    data[e.target.name] = e.target.checked;
+    creditCheck_names.forEach(name => {
+      if (e.target.name === name ) {
+        creditCheck[e.target.name] = e.target.checked;
+      }
+    });
+    employment_names.forEach(name => {
+      if (e.target.name === name ) {
+        bankAccount[e.target.name] = e.target.checked;
+        
+      }
+    });
   }
+
+  // addressHistory, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration
+
+  // Push objects into data array --------------------
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    data.push(personalDetails, addressHistory, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration);
+    data.push(personalDetails, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration);
+    // data.push(personalDetails);
+    // data.push(addressHistory);
     setDataCollection(data);
     console.log(dataCollection);
   }

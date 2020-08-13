@@ -8,7 +8,7 @@ import FieldInput from './components/labels/FieldInput';
 
 function App() {
 
-  const [dataCollection, setDataCollection] = useState(null)
+  const [dataCollection, setDataCollection] = useState(null);
 
   const data = {
     "personalDetails_names" : null,
@@ -148,7 +148,7 @@ function App() {
   // Push objects into data array --------------------
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     data["personalDetails_names"] = personalDetails;
     data["addressHistory_names"] = addressHistory;
     data["creditCheck_names"] = creditCheck;

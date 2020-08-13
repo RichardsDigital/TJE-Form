@@ -6,12 +6,21 @@ import SideLabelInput from './components/labels/SideLabelInput';
 import Checkbox from './components/labels/Checkbox';
 import FieldInput from './components/labels/FieldInput';
 
-
 function App() {
 
   const [dataCollection, setDataCollection] = useState(null)
 
-  const data = [];
+  const data = {
+    "personalDetails_names" : null,
+    "addressHistory_names" : null,
+    "creditCheck_names" : null,
+    "bankAccount_names" : null,
+    "employment_names" : null,
+    "otherOccupants_names" : null,
+    "references_names" : null,
+    "emergencyContact_names" : null,
+    "decleration_names" : null
+  };
 
   // Questions name array --------------------
 
@@ -136,15 +145,18 @@ function App() {
     });
   }
 
-  // addressHistory, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration
-
   // Push objects into data array --------------------
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    data.push(personalDetails, creditCheck, bankAccount, employment, otherOccupants, references, emergencyContact, decleration);
-    // data.push(personalDetails);
-    // data.push(addressHistory);
+    data["personalDetails_names"] = personalDetails;
+    data["addressHistory_names"] = addressHistory;
+    data["creditCheck_names"] = creditCheck;
+    data["bankAccount_names"] = bankAccount;
+    data["employment_names"] = employment;
+    data["otherOccupants_names"] = otherOccupants;
+    data["references_names"] = references;
+    data["decleration_names"] = decleration;
     setDataCollection(data);
     console.log(dataCollection);
   }

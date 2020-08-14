@@ -14,11 +14,11 @@
         margin: 0;
     }
 }
-input,
-textarea {
-    padding: 8px;
-    margin: 0 6px;
-    resize: none;
+p, input, textarea, label {
+    box-shadow: none;
+    font-size: 16px;
+    padding: 10px 4px;
+    line-height: 24px;
 }
 label {
     padding: 8px;
@@ -31,21 +31,11 @@ h2 {
     font-size: 22px;
     padding: 40px 0 20px 0;
 }
-p, input, textarea, label {
-    font-size: 16px;
-    padding: 10px 4px;
-    line-height: 24px;
-}
 input[type="checkbox"] {
-    background-color: black;
     width: 20px;
     height: 20px;
     cursor: pointer;
     margin-right: 10px;
-}
-.sideLabelledInput {
-    display: flex;
-    width: 100%;
 }
 .contentContainer {
     border-top: 4px solid #fbd46d;
@@ -62,8 +52,8 @@ textarea {
     width: 100%;
 }
 .flexLabels {
-    display: flex;
     width: 100%;
+    display: flex;
     @media screen and (max-width: 855px) {
         flex-direction: column;
     }
@@ -97,6 +87,17 @@ textarea {
 // Mobile Responsive ---------------------------------------
 
 @media screen and (max-width: 855px) {
+
+    // Global Styles
+
+    input,
+    textarea {
+    resize: none;
+    border: 1px solid rgba(0, 0, 0, 0.315) !important;
+    border-radius: 4px;
+    padding: 8px;
+    }
+
     // Header -------
 
     #pageHeader {
@@ -129,6 +130,16 @@ textarea {
         background-color: white;
         padding: 20px;
     }
+    .sideLabelRight, .sideLabelLeft {
+        display: flex;
+        width: 100%;
+    }
+    .sideLabelRight {
+        flex-direction: column-reverse;
+    }
+    .sideLabelLeft {
+        flex-direction: column;
+    }
 
     // Section One -------
 
@@ -158,11 +169,6 @@ textarea {
 
     // Section Two -------
 
-    .previousAddressA,
-    .previousAddressB,
-    .previousAddressC {
-        height: 40px;
-    }
     #sectionTwo .addressRow {
         background-color: #f5f5f5;
         border-bottom: 1px solid #adadad;
@@ -294,6 +300,24 @@ textarea {
 // Desktop Responsive ---------------------------------------
 
 @media screen and (min-width: 856px) {
+
+    // Global Styles
+
+    input,
+    textarea {
+    padding: 8px;
+    margin: 0 6px;
+    resize: none;
+    border: 1px solid rgba(0, 0, 0, 0.315) !important;
+    border-radius: 4px;
+    }
+
+    .sideLabelRight, .sideLabelLeft {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+    }
+
     // Header
 
     #pageHeader {
@@ -311,7 +335,6 @@ textarea {
     #pageHeader h1 {
         font-size: 28px;
     }
-
     #sectionOne,
     #sectionTwo,
     #sectionThree,
@@ -376,6 +399,7 @@ textarea {
     .yearsC,
     .monthsC {
         width: 40%;
+        height: 24px;
     }
     #sectionTwo .postCodeA,
     #sectionTwo .postCodeB,

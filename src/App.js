@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './styles/app.scss';
 import logo from './images/TJE.png';
 import StandardInput from './components/labels/StandardInput';
-import SideLabelInput from './components/labels/SideLabelInput';
+import SideLabelLeft from './components/labels/SideLabelLeft';
+import SideLabelRight from './components/labels/SideLabelRight';
 import Checkbox from './components/labels/Checkbox';
 import FieldInput from './components/labels/FieldInput';
 
@@ -199,8 +200,8 @@ function App() {
             <p>Time at above address</p>
             <div className="rowFour">
               <div className="flexLabels">
-                <SideLabelInput titleRight="Years" className="years" name="years" onChange={handleChange} required="required"/>
-                <SideLabelInput titleRight="Months" className="months" name="months" onChange={handleChange} required="required"/>
+                <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required"/>
+                <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required"/>
               </div>
             </div>
             <div className="rowFive">
@@ -219,8 +220,8 @@ function App() {
             <div className="addressRow">
               <FieldInput className="previousAddressA" name="previous_address_1" title="Previous Address 1" onChange={handleChange} />
               <div className="flexLabels">
-                <SideLabelInput titleRight="Years" className="yearsA" name="years_1" onChange={handleChange} />
-                <SideLabelInput titleRight="Months" className="monthsA" name="months_1" onChange={handleChange} />
+                <SideLabelRight titleRight="Years" className="yearsA" name="years_1" onChange={handleChange} />
+                <SideLabelRight titleRight="Months" className="monthsA" name="months_1" onChange={handleChange} />
               </div>
               <StandardInput className="postCodeA" name="postcode_1" title="Post Code" onChange={handleChange} />
               <StandardInput className="typeA" name="type_1" title="Type" onChange={handleChange} />
@@ -229,8 +230,8 @@ function App() {
             <div className="addressRow">
               <FieldInput className="previousAddressB" name="previous_address_2" title="Previous Address 2" onChange={handleChange} />
               <div className="flexLabels">
-                <SideLabelInput titleRight="Years" className="yearsB" name="years_2" onChange={handleChange} />
-                <SideLabelInput titleRight="Months" className="monthsB" name="months_2" onChange={handleChange} />
+                <SideLabelRight titleRight="Years" className="yearsB" name="years_2" onChange={handleChange} />
+                <SideLabelRight titleRight="Months" className="monthsB" name="months_2" onChange={handleChange} />
               </div>
               <StandardInput className="postCodeB" name="post_code_2" title="Post Code" onChange={handleChange} />
               <StandardInput className="typeB" name="type_2" title="Type" onChange={handleChange} />
@@ -239,8 +240,8 @@ function App() {
             <div className="addressRow">
               <FieldInput className="previousAddressC" name="previous_address_3" title="Previous Address 3" onChange={handleChange} />
               <div className="flexLabels">
-                <SideLabelInput titleRight="Years" className="yearsC" name="years_3" onChange={handleChange} />
-                <SideLabelInput titleRight="Months" className="monthsC" name="months_3" onChange={handleChange} />
+                <SideLabelRight titleRight="Years" className="yearsC" name="years_3" onChange={handleChange} />
+                <SideLabelRight titleRight="Months" className="monthsC" name="months_3" onChange={handleChange} />
               </div>
               <StandardInput className="postCodeC" name="postcode_3" title="Post Code" onChange={handleChange} />
               <StandardInput className="typeC" name="type_3" title="Type" onChange={handleChange} />
@@ -344,17 +345,17 @@ function App() {
               <h1>Bank Account</h1>
               <div className="row">
                 <div className="upper">
-                  <SideLabelInput titleLeft="Account Name" className="accountName" name="account_name" />
-                  <SideLabelInput titleLeft="Bank Name" className="bankName" name="bank_name" />
+                  <SideLabelLeft titleLeft="Account Name" className="accountName" name="account_name" />
+                  <SideLabelLeft titleLeft="Bank Name" className="bankName" name="bank_name" />
                 </div>
                 <div className="middle">
-                  <SideLabelInput titleLeft="Account Number" className="accountName" name="account_number" />
-                  <SideLabelInput titleLeft="Sort Code" className="bankName" name="sort_code" />
+                  <SideLabelLeft titleLeft="Account Number" className="accountName" name="account_number" />
+                  <SideLabelLeft titleLeft="Sort Code" className="bankName" name="sort_code" />
                 </div>
                 <div className="lower">
                   <p>How long have you banked here?</p>
-                  <SideLabelInput titleRight="Years" className="accountName" name="bank_years" />
-                  <SideLabelInput titleRight="Months" className="bankName" name="bank_months" />
+                  <SideLabelRight titleRight="Years" className="accountName" name="bank_years" />
+                  <SideLabelRight titleRight="Months" className="bankName" name="bank_months" />
                 </div>
               </div>
             </div>
@@ -480,10 +481,10 @@ function App() {
         <div id="sectionEight">
           <div className="contentContainer">
             <h1>Section Eight - Declaration</h1>
-            <SideLabelInput titleLeft="Signature" name="signature" onChange={handleChange} />
+            <SideLabelLeft titleLeft="Signature" name="signature" onChange={handleChange} />
             <div className="flexLabels">
-              <SideLabelInput titleLeft="Full Name" name="full_name" onChange={handleChange} />
-              <SideLabelInput titleLeft="Date" name="date" onChange={handleChange} />
+              <SideLabelLeft titleLeft="Full Name" name="full_name" onChange={handleChange} />
+              <SideLabelLeft titleLeft="Date" name="date" onChange={handleChange} />
             </div>
             <FieldInput title="Additional Comments" name="additional_comments" className="additionalComments" onChange={handleChange} />
           </div>

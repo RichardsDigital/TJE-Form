@@ -20,7 +20,7 @@ textarea,
 label {
     box-shadow: none;
     font-size: 16px;
-    padding: 10px 4px;
+    padding: 10px 0;
     line-height: 24px;
 }
 label {
@@ -75,11 +75,6 @@ textarea {
         padding: 0;
     }
 }
-.employmentDetailsBox input,
-.employmentDetailsBox label {
-    margin: 10px 0;
-    align-self: center;
-}
 .employmentDetailsBox .postcode {
     width: 15%;
     @media screen and (max-width: 1000px) {
@@ -99,10 +94,13 @@ textarea {
         border-radius: 4px;
         padding: 8px;
     }
-
     .employmentDetailsBox input {
         grid-column: 1fr;
     }
+    .employmentDetailsBox input,
+    .employmentDetailsBox label {
+    align-self: center;
+}
 
     // Header -------
 
@@ -232,7 +230,6 @@ textarea {
     }
     #sectionThree #bankAccount .row {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
     }
     #sectionThree #bankAccount .accountName,
     #sectionThree #bankAccount .bankName {
@@ -333,6 +330,11 @@ textarea {
     }
     .employmentDetailsBox input {
         grid-column: 2/3;
+    }
+    .employmentDetailsBox input,
+    .employmentDetailsBox label {
+    margin: 10px 0;
+    align-self: center;
     }
 
     // Header

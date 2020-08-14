@@ -14,7 +14,10 @@
         margin: 0;
     }
 }
-p, input, textarea, label {
+p,
+input,
+textarea,
+label {
     box-shadow: none;
     font-size: 16px;
     padding: 10px 4px;
@@ -87,15 +90,18 @@ textarea {
 // Mobile Responsive ---------------------------------------
 
 @media screen and (max-width: 855px) {
-
     // Global Styles
 
     input,
     textarea {
-    resize: none;
-    border: 1px solid rgba(0, 0, 0, 0.315) !important;
-    border-radius: 4px;
-    padding: 8px;
+        resize: none;
+        border: 1px solid rgba(0, 0, 0, 0.315) !important;
+        border-radius: 4px;
+        padding: 8px;
+    }
+
+    .employmentDetailsBox input {
+        grid-column: 1fr;
     }
 
     // Header -------
@@ -130,7 +136,8 @@ textarea {
         background-color: white;
         padding: 20px;
     }
-    .sideLabelRight, .sideLabelLeft {
+    .sideLabelRight,
+    .sideLabelLeft {
         display: flex;
         width: 100%;
     }
@@ -154,6 +161,10 @@ textarea {
     }
     #sectionOne .rowThree {
         display: grid;
+    }
+    #sectionOne p {
+        font-weight: 500;
+        padding: 20px 0;
     }
     #sectionOne .postCodeA,
     #sectionOne .postCodeB,
@@ -223,11 +234,13 @@ textarea {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
     }
-    #sectionThree #bankAccount .accountName,  #sectionThree #bankAccount .bankName {
+    #sectionThree #bankAccount .accountName,
+    #sectionThree #bankAccount .bankName {
         display: inline-flex;
         justify-content: space-around;
     }
     #sectionThree #bankAccount .row .upper {
+        background-color: white;
         display: grid;
         align-items: center;
     }
@@ -236,11 +249,13 @@ textarea {
         align-items: center;
     }
     #sectionThree #bankAccount .row .lower {
+        background-color: white;
         display: grid;
         align-items: center;
     }
     #sectionThree #bankAccount .row .lower p {
-        padding-left: 20px;
+        font-weight: 500;
+        padding: 20px 0;
     }
 
     // Section Four -------
@@ -300,22 +315,24 @@ textarea {
 // Desktop Responsive ---------------------------------------
 
 @media screen and (min-width: 856px) {
-
     // Global Styles
 
     input,
     textarea {
-    padding: 8px;
-    margin: 0 6px;
-    resize: none;
-    border: 1px solid rgba(0, 0, 0, 0.315) !important;
-    border-radius: 4px;
+        padding: 8px;
+        margin: 0 6px;
+        resize: none;
+        border: 1px solid rgba(0, 0, 0, 0.315) !important;
+        border-radius: 4px;
     }
-
-    .sideLabelRight, .sideLabelLeft {
+    .sideLabelRight,
+    .sideLabelLeft {
         display: flex;
         width: 100%;
         padding: 10px;
+    }
+    .employmentDetailsBox input {
+        grid-column: 2/3;
     }
 
     // Header

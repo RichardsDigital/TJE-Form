@@ -393,19 +393,19 @@ function App() {
 
           <div className="employmentDetailsBox">
             <label>Annual Salary</label>
-            <input type="text" name="annual_salary" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="annual_salary" onChange={handleChange} />
             <label>Company Name</label>
-            <input type="text" name="company_name" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="company_name" onChange={handleChange}/>
             <label>Company Address</label>
-            <input type="text" name="company_address" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="company_address" onChange={handleChange}/>
             <label>Postcode</label>
-            <input type="text" name="postcode" className="postcode" onChange={handleChange} style={{ gridColumn: '2/3'}} />
+            <input type="text" name="postcode" className="postcode" onChange={handleChange}/>
             <label>Reference Name</label>
-            <input type="text" name="reference_name" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="reference_name" onChange={handleChange}/>
             <label>Reference Contact Number</label>
-            <input type="text" name="reference_contact_number" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="reference_contact_number" onChange={handleChange}/>
             <label>Reference Contact Email</label>
-            <input type="text" name="reference_contact_email" onChange={handleChange} style={{ gridColumn: '2/3' }} />
+            <input type="text" name="reference_contact_email" onChange={handleChange}/>
           </div>
         </div>
 
@@ -434,28 +434,28 @@ function App() {
             <h2>Referee One</h2>
             <div className="employmentDetailsBox">
               <label>Referee Name</label>
-              <input type="text" name="referee_name_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_name_1" onChange={handleChange} />
               <label>Referee Contact Number</label>
-              <input type="text" name="referee_contact_number_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_contact_number_1" onChange={handleChange} />
               <label>Referee Address</label>
-              <input type="text" name="referee_address_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_address_1" onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode_1" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="postcode_1" className="postcode" onChange={handleChange} />
               <label>Their relationship to you</label>
-              <input type="text" name="relationship_to_you_1" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="relationship_to_you_1" onChange={handleChange} />
             </div>
             <h2>Referee Two</h2>
             <div className="employmentDetailsBox">
               <label>Referee Name</label>
-              <input type="text" name="referee_name_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_name_2" onChange={handleChange} />
               <label>Referee Contact Number</label>
-              <input type="text" name="referee_contact_number_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_contact_number_2" onChange={handleChange} />
               <label>Referee Address</label>
-              <input type="text" name="referee_address_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="referee_address_2" onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode_2" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="postcode_2" className="postcode" onChange={handleChange} />
               <label>Their relationship to you</label>
-              <input type="text" name="relationship_to_you_2" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="relationship_to_you_2" onChange={handleChange} />
             </div>
           </div>
         </div>
@@ -465,15 +465,15 @@ function App() {
             <h1>Section Seven - Emergency Contact</h1>
             <div className="employmentDetailsBox">
               <label>Contact Name</label>
-              <input type="text" name="contact_name" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="contact_name" onChange={handleChange} />
               <label>Contact Number</label>
-              <input type="text" name="contact_number" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="contact_number" onChange={handleChange} />
               <label>Contact Address</label>
-              <input type="text" name="contact_address" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="contact_address" onChange={handleChange} />
               <label>Postcode</label>
-              <input type="text" name="postcode" className="postcode" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="postcode" className="postcode" onChange={handleChange} />
               <label>Their relationship to you</label>
-              <input type="text" name="relationship_to_you" style={{ gridColumn: '2/3' }} onChange={handleChange} />
+              <input type="text" name="relationship_to_you" onChange={handleChange} />
             </div>
           </div>
         </div>

@@ -1,7 +1,9 @@
+// Global Styles ---------------------------------------
+
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 .App {
     background-color: #f1f0f0;
@@ -12,7 +14,8 @@
         margin: 0;
     }
 }
-input, textarea {
+input,
+textarea {
     padding: 8px;
     margin: 0 6px;
     resize: none;
@@ -28,20 +31,18 @@ h2 {
     font-size: 22px;
     padding: 40px 0 20px 0;
 }
-p  {
+p, input, textarea, label {
+    font-size: 16px;
     padding: 10px 4px;
     line-height: 24px;
 }
-input[type=checkbox] {
+input[type="checkbox"] {
     background-color: black;
     width: 20px;
     height: 20px;
     cursor: pointer;
     margin-right: 10px;
 }
-
-// Public Styles ---------------------------------------
-
 .sideLabelledInput {
     display: flex;
     width: 100%;
@@ -67,7 +68,8 @@ textarea {
         flex-direction: column;
     }
 }
-.years, .months {
+.years,
+.months {
     margin: 0 10px 0 0;
 }
 .employmentDetailsBox {
@@ -80,7 +82,8 @@ textarea {
         padding: 0;
     }
 }
-.employmentDetailsBox input, .employmentDetailsBox label {
+.employmentDetailsBox input,
+.employmentDetailsBox label {
     margin: 10px 0;
     align-self: center;
 }
@@ -91,271 +94,398 @@ textarea {
     }
 }
 
-// Header ---------------------------------------
+// Mobile Responsive ---------------------------------------
 
-#pageHeader {
-    background-color: white;
-}
-#pageHeader .headerContainer {
-    padding: 50px 50px 0px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media screen and (max-width: 855px) {
+@media screen and (max-width: 855px) {
+    // Header -------
+
+    #pageHeader {
+        background-color: white;
+    }
+    #pageHeader .headerContainer {
+        padding: 50px 50px 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         flex-direction: column;
     }
-}
-#pageHeader .logo img {
-    height: 170px;
-}
-#pageHeader h1 {
-    font-size: 28px;
-    @media screen and (max-width: 855px) {
+    #pageHeader .logo img {
+        height: 140px;
+    }
+    #pageHeader h1 {
+        font-size: 28px;
         padding-top: 50px;
     }
-}
-#sectionOne, #sectionTwo, #sectionThree, #sectionFour, #sectionFive, #sectionSix,
-#sectionSeven, #sectionEight {
-    padding: 50px;
-    @media screen and (max-width: 855px) {
+
+    #sectionOne,
+    #sectionTwo,
+    #sectionThree,
+    #sectionFour,
+    #sectionFive,
+    #sectionSix,
+    #sectionSeven,
+    #sectionEight,
+    #notice {
+        background-color: white;
         padding: 20px;
     }
-}
 
-// Section One ---------------------------------------
+    // Section One -------
 
-#sectionOne {
-    background-color: white;
-    @media screen and (max-width: 855px) {
+    #sectionOne {
         display: grid;
     }
-}
-#sectionOne .rowOne {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: 10% 20% 20% 1fr;
-    @media screen and (max-width: 855px) {
+    #sectionOne .rowOne {
         grid-template-columns: none;
     }
-}
-#sectionOne .rowTwo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionOne .rowTwo {
+        display: grid;
     }
-}
-#sectionOne .rowThree {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionOne .rowThree {
+        display: grid;
     }
-}
-#sectionOne .postCodeA, #sectionOne .postCodeB, #sectionOne .postCodeC {
-    width: 18%;
-}
-#sectionOne .rowFour {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionOne .postCodeA,
+    #sectionOne .postCodeB,
+    #sectionOne .postCodeC {
+        width: 18%;
     }
-}
-#sectionOne .rowFive {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionOne .rowFour {
+        display: grid;
     }
-}
+    #sectionOne .rowFive {
+        display: grid;
+    }
 
-// Section Two ---------------------------------------
+    // Section Two -------
 
-#sectionTwo {
-    background-color: white;
-}
-.previousAddressA, .previousAddressB, .previousAddressC {
-    height: 40px;
-}
-#sectionTwo .addressRow {
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #adadad;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    .previousAddressA,
+    .previousAddressB,
+    .previousAddressC {
+        height: 40px;
     }
-}
-.yearsA, .monthsA, .yearsB, .monthsB, .yearsC, .monthsC  {
-    width: 40%;
-}
-#sectionTwo .postCodeA, #sectionTwo .postCodeB, #sectionTwo .postCodeC {
-    width: 20%;
-}
-#sectionTwo .addressRow .flexLabels .sideLabelledInput {
-    align-self: center;
-}
-
-// Section Three ---------------------------------------
-
-#sectionThree {
-    background-color: white;
-}
-#sectionThree .row {
-    display: grid;
-    padding: 20px 0;
-}
-#sectionThree .row .upper {
-    background-color: #f0f0f0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionTwo .addressRow {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #adadad;
+        padding: 20px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
     }
-}
-#sectionThree .checkBoxes {
-    grid-column: 2/3;
-    display: flex;
-    align-content: center;
+    .yearsA,
+    .monthsA,
+    .yearsB,
+    .monthsB,
+    .yearsC,
+    .monthsC {
+        width: 40%;
+    }
+    #sectionTwo .postCodeA,
+    #sectionTwo .postCodeB,
+    #sectionTwo .postCodeC {
+        width: 20%;
+    }
+    #sectionTwo .addressRow .flexLabels .sideLabelledInput {
+        align-self: center;
+    }
 
-    @media screen and (max-width: 855px) {
+    // Section Three -------
+
+    #sectionThree .row {
+        display: grid;
+        padding: 20px 0;
+    }
+    #sectionThree .row .upper {
+        background-color: #f0f0f0;
+        display: grid;
+    }
+    #sectionThree .checkBoxes {
+        grid-column: 2/3;
+        display: flex;
+        align-content: center;
         flex-direction: column;
     }
-}
-#sectionThree .checkBoxes label {
-    display: flex;
-    align-items: center;
-}
-#sectionThree .row .lower {
-    background-color: #e0e0e0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    display: flex;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree .checkBoxes label {
+        display: flex;
+        align-items: center;
     }
-}
-#sectionThree .row .lower .description {
-    margin: 10px;
-    width: 60%;
-}
-#sectionThree #bankAccount .row {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-#sectionThree #bankAccount .row .upper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree .row .lower {
+        background-color: #e0e0e0;
+        display: grid;
+        display: flex;
     }
-}
-#sectionThree #bankAccount .row .middle {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree .row .lower .description {
+        margin: 10px;
+        width: 60%;
     }
-}
-#sectionThree #bankAccount .row .lower {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree #bankAccount .row {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
     }
-}
-#sectionThree #bankAccount .row .lower p {
-    padding-left: 20px;
-}
-
-// Section Four ---------------------------------------
-
-#sectionFour {
-    background-color: white;
-}
-#sectionFour .checkBoxContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree #bankAccount .row .upper {
+        display: grid;
+        align-items: center;
     }
-}
-#sectionFour .checkBoxContainer .description {
-    display: flex;
-    align-items: center;
-}
-#sectionFour .checkBoxContainer .row {
-    display: flex;
-    flex-direction: column;
-}
-
-// Section Five ---------------------------------------
-
-#sectionFive {
-    background-color: white;
-}
-#sectionFive .occupantsContainer {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 855px) {
-        grid-template-columns: none;
+    #sectionThree #bankAccount .row .middle {
+        display: grid;
+        align-items: center;
     }
-}
+    #sectionThree #bankAccount .row .lower {
+        display: grid;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .lower p {
+        padding-left: 20px;
+    }
 
-// Section Six ---------------------------------------
+    // Section Four -------
 
-#sectionSix {
-    background-color: white;
-}
+    #sectionFour .checkBoxContainer {
+        display: grid;
+    }
+    #sectionFour .checkBoxContainer .description {
+        display: flex;
+        align-items: center;
+    }
+    #sectionFour .checkBoxContainer .row {
+        display: flex;
+        flex-direction: column;
+    }
 
-// Section Seven ---------------------------------------
+    // Section Five -------
 
-#sectionSeven {
-    background-color: white;
-}
+    #sectionFive .occupantsContainer {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 
-// Section Eight ---------------------------------------
+    // Section Six -------
 
-#sectionEight {
-    background-color: white;
-}
-#sectionEight .flexLabels {
-    justify-content: space-around;
-}
-#sectionEight .additionalComments {
-    display: flex;
-    align-items: center;
-}
-#sectionEight .additionalComments {
-    height: 400px;
-    margin-top: 20px;
-}
+    // Section Seven -------
 
-// Notice ---------------------------------------
+    // Section Eight -------
 
-#notice {
-    padding: 0 50px;
-    background-color: white;
-}
-.buttonContainer {
-    width: 100%;
-    @media screen and (max-width: 855px) {
+    #sectionEight .flexLabels {
+        justify-content: space-around;
+    }
+    #sectionEight .additionalComments {
+        display: flex;
+        align-items: center;
+    }
+    #sectionEight .additionalComments {
+        height: 400px;
+        margin-top: 20px;
+    }
+
+    // Notice -------
+
+    .buttonContainer {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-}
-.submitFormButton {
-    margin: 50px 0;
-    padding: 10px 100px;
-    @media screen and (max-width: 855px) {
+    .submitFormButton {
+        margin: 50px 0;
+        padding: 10px 100px;
         width: 100%;
+    }
+}
+
+// Desktop Responsive ---------------------------------------
+
+@media screen and (min-width: 856px) {
+    // Header
+
+    #pageHeader {
+        background-color: white;
+    }
+    #pageHeader .headerContainer {
+        padding: 50px 50px 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #pageHeader .logo img {
+        height: 140px;
+    }
+    #pageHeader h1 {
+        font-size: 28px;
+    }
+
+    #sectionOne,
+    #sectionTwo,
+    #sectionThree,
+    #sectionFour,
+    #sectionFive,
+    #sectionSix,
+    #sectionSeven,
+    #sectionEight,
+    #notice {
+        background-color: white;
+        padding: 50px;
+    }
+
+    // Section One -------
+
+    #sectionOne .rowOne {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 10% 20% 20% 1fr;
+    }
+    #sectionOne .rowTwo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .rowThree {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .postCodeA,
+    #sectionOne .postCodeB,
+    #sectionOne .postCodeC {
+        width: 18%;
+    }
+    #sectionOne .rowFour {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .rowFive {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    // Section Two -------
+
+    .previousAddressA,
+    .previousAddressB,
+    .previousAddressC {
+        height: 40px;
+    }
+    #sectionTwo .addressRow {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #adadad;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .yearsA,
+    .monthsA,
+    .yearsB,
+    .monthsB,
+    .yearsC,
+    .monthsC {
+        width: 40%;
+    }
+    #sectionTwo .postCodeA,
+    #sectionTwo .postCodeB,
+    #sectionTwo .postCodeC {
+        width: 20%;
+    }
+    #sectionTwo .addressRow .flexLabels .sideLabelledInput {
+        align-self: center;
+    }
+
+    // Section Three -------
+
+    #sectionThree .row {
+        display: grid;
+        padding: 20px 0;
+    }
+    #sectionThree .row .upper {
+        background-color: #f0f0f0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionThree .checkBoxes {
+        grid-column: 2/3;
+        display: flex;
+        align-content: center;
+    }
+    #sectionThree .checkBoxes label {
+        display: flex;
+        align-items: center;
+    }
+    #sectionThree .row .lower {
+        background-color: #e0e0e0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        display: flex;
+    }
+    #sectionThree .row .lower .description {
+        margin: 10px;
+        width: 60%;
+    }
+    #sectionThree #bankAccount .row {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    #sectionThree #bankAccount .row .upper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .middle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .lower {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .lower p {
+        padding-left: 20px;
+    }
+
+    // Section Four -------
+
+    #sectionFour .checkBoxContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #sectionFour .checkBoxContainer .description {
+        display: flex;
+        align-items: center;
+    }
+    #sectionFour .checkBoxContainer .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Section Five -------
+
+    #sectionFive .occupantsContainer {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    // Section Six -------
+
+    // Section Seven -------
+
+    // Section Eight -------
+
+    #sectionEight .flexLabels {
+        justify-content: space-around;
+    }
+    #sectionEight .additionalComments {
+        display: flex;
+        align-items: center;
+    }
+    #sectionEight .additionalComments {
+        height: 400px;
+        margin-top: 20px;
+    }
+
+    // Notice -------
+
+    .buttonContainer {
+        width: 100%;
+    }
+    .submitFormButton {
+        margin: 50px 0;
+        padding: 10px 100px;
     }
 }

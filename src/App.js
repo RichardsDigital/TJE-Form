@@ -148,7 +148,7 @@ function App() {
   // Push objects into data array --------------------
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     data["personalDetails"] = personalDetails;
     data["addressHistory"] = addressHistory;
     data["creditCheck"] = creditCheck;
@@ -247,6 +247,7 @@ function App() {
             </div>
           </div>
         </div>
+        
         <div id="sectionThree">
           <div className="contentContainer">
             <h1>Section Three - Credit Check</h1>

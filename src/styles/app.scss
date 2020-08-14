@@ -176,12 +176,13 @@ textarea {
     .monthsB,
     .yearsC,
     .monthsC {
-        width: 40%;
+        width: 100px;
+        margin-left: 0;
     }
     #sectionTwo .postCodeA,
     #sectionTwo .postCodeB,
     #sectionTwo .postCodeC {
-        width: 20%;
+        width: 40%;
     }
     #sectionTwo .addressRow .flexLabels .sideLabelledInput {
         align-self: center;
@@ -195,13 +196,11 @@ textarea {
     }
     #sectionThree .row .upper {
         background-color: #f0f0f0;
-        display: grid;
     }
     #sectionThree .checkBoxes {
         grid-column: 2/3;
         display: flex;
         align-content: center;
-        flex-direction: column;
     }
     #sectionThree .checkBoxes label {
         display: flex;
@@ -210,15 +209,17 @@ textarea {
     #sectionThree .row .lower {
         background-color: #e0e0e0;
         display: grid;
-        display: flex;
     }
     #sectionThree .row .lower .description {
         margin: 10px;
-        width: 60%;
     }
     #sectionThree #bankAccount .row {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
+    }
+    #sectionThree #bankAccount .accountName,  #sectionThree #bankAccount .bankName {
+        display: inline-flex;
+        justify-content: space-around;
     }
     #sectionThree #bankAccount .row .upper {
         display: grid;

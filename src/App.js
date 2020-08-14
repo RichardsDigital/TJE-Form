@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/app.scss';
 import logo from './images/TJE.png';
 import StandardInput from './components/labels/StandardInput';
@@ -11,15 +11,15 @@ function App() {
   const [dataCollection, setDataCollection] = useState(null);
 
   const data = {
-    "personalDetails_names" : null,
-    "addressHistory_names" : null,
-    "creditCheck_names" : null,
-    "bankAccount_names" : null,
-    "employment_names" : null,
-    "otherOccupants_names" : null,
-    "references_names" : null,
-    "emergencyContact_names" : null,
-    "decleration_names" : null
+    "personalDetails" : null,
+    "addressHistory" : null,
+    "creditCheck" : null,
+    "bankAccount" : null,
+    "employment" : null,
+    "otherOccupants" : null,
+    "references" : null,
+    "emergencyContact" : null,
+    "decleration" : null
   };
 
   // Questions name array --------------------
@@ -148,18 +148,21 @@ function App() {
   // Push objects into data array --------------------
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    data["personalDetails_names"] = personalDetails;
-    data["addressHistory_names"] = addressHistory;
-    data["creditCheck_names"] = creditCheck;
-    data["bankAccount_names"] = bankAccount;
-    data["employment_names"] = employment;
-    data["otherOccupants_names"] = otherOccupants;
-    data["references_names"] = references;
-    data["decleration_names"] = decleration;
+    e.preventDefault();
+    data["personalDetails"] = personalDetails;
+    data["addressHistory"] = addressHistory;
+    data["creditCheck"] = creditCheck;
+    data["bankAccount"] = bankAccount;
+    data["employment"] = employment;
+    data["otherOccupants"] = otherOccupants;
+    data["references"] = references;
+    data["decleration"] = decleration;
     setDataCollection(data);
-    console.log(dataCollection);
   }
+
+  useEffect(() => {
+    console.log(dataCollection);
+  })
 
   return (
     <div className="App">

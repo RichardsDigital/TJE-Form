@@ -3,7 +3,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "brandon-grotesque", sans-serif;
 }
 .App {
     background-color: #f1f0f0;
@@ -19,12 +19,11 @@ input,
 textarea,
 label {
     box-shadow: none;
-    font-size: 16px;
-    padding: 10px 0;
+    font-size: 18px;
     line-height: 24px;
 }
 label {
-    padding: 8px;
+    padding: 10px;
 }
 h1 {
     font-size: 24px;
@@ -33,6 +32,10 @@ h1 {
 h2 {
     font-size: 22px;
     padding: 40px 0 20px 0;
+}
+p {
+    padding: 10px;
+    font-size: 18px;
 }
 input[type="checkbox"] {
     width: 20px;
@@ -162,7 +165,6 @@ textarea {
     }
     #sectionOne p {
         font-weight: 500;
-        padding: 20px 0;
     }
     #sectionOne .postCodeA,
     #sectionOne .postCodeB,
@@ -224,6 +226,9 @@ textarea {
     #sectionThree .row .lower {
         background-color: #e0e0e0;
         display: grid;
+    }
+    #sectionThree .row p {
+        padding: 10px;
     }
     #sectionThree .row .lower .description {
         margin: 10px;

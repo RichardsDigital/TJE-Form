@@ -1,0 +1,46 @@
+@import "./desktop.scss";
+@import "./mobile.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "brandon-grotesque", sans-serif;
+}
+.App {
+    background-color: #f1f0f0;
+    max-width: 1650px;
+    margin: 0 auto;
+    @media screen and (max-width: 855px) {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+p,
+input,
+textarea,
+label {
+    box-shadow: none;
+    font-size: 18px;
+    line-height: 24px;
+}
+label {
+    padding: 10px;
+}
+h1 {
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+h2 {
+    font-size: 22px;
+    padding: 40px 0 20px 0;
+}
+p {
+    padding: 10px 5px;
+    font-size: 18px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}

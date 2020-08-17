@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styles/app.scss';
+import './styles/global.scss';
 import logo from './images/TJE.png';
 import StandardInput from './components/labels/StandardInput';
 import SideLabelLeft from './components/labels/SideLabelLeft';
@@ -163,7 +163,7 @@ function App() {
 
   useEffect(() => {
     console.log(dataCollection);
-  })
+  });
 
   return (
     <div className="App">
@@ -181,33 +181,33 @@ function App() {
           <div className="contentContainer">
             <h1>Section One - Personal Details</h1>
             <div className="rowOne">
-              <StandardInput title="Title" className="title" name="title" onChange={handleChange} required="required"/>
-              <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} required="required"/>
+              <StandardInput title="Title" className="title" name="title" onChange={handleChange} required="required" />
+              <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} required="required" />
               <StandardInput title="Middle name" className="middlename" name="middlename" onChange={handleChange} />
-              <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} required="required"/>
+              <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} required="required" />
             </div>
             <div className="rowTwo">
-              <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required"/>
+              <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required" />
               <div>
-                <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required"/>
-                <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required"/>
+                <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required" />
+                <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required" />
               </div>
             </div>
             <div className="rowThree">
-              <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required"/>
-              <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required"/>
+              <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required" />
+              <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required" />
             </div>
             <p>Time at above address</p>
             <div className="rowFour">
               <div className="flexLabels">
-                <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required"/>
-                <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required"/>
+                <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required" />
+                <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required" />
               </div>
             </div>
             <div className="rowFive">
-              <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} required="required"/>
-              <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} required="required"/>
-              <StandardInput title="Required move in date" className="requiredMoveInDate" name="required_move_in_date" onChange={handleChange} required="required"/>
+              <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} required="required" />
+              <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} required="required" />
+              <StandardInput title="Required move in date" className="requiredMoveInDate" name="required_move_in_date" onChange={handleChange} required="required" />
             </div>
           </div>
         </div>
@@ -395,17 +395,17 @@ function App() {
             <label>Annual Salary</label>
             <input type="text" name="annual_salary" onChange={handleChange} />
             <label>Company Name</label>
-            <input type="text" name="company_name" onChange={handleChange}/>
+            <input type="text" name="company_name" onChange={handleChange} />
             <label>Company Address</label>
-            <input type="text" name="company_address" onChange={handleChange}/>
+            <input type="text" name="company_address" onChange={handleChange} />
             <label>Postcode</label>
-            <input type="text" name="postcode" className="postcode" onChange={handleChange}/>
+            <input type="text" name="postcode" className="postcode" onChange={handleChange} />
             <label>Reference Name</label>
-            <input type="text" name="reference_name" onChange={handleChange}/>
+            <input type="text" name="reference_name" onChange={handleChange} />
             <label>Reference Contact Number</label>
-            <input type="text" name="reference_contact_number" onChange={handleChange}/>
+            <input type="text" name="reference_contact_number" onChange={handleChange} />
             <label>Reference Contact Email</label>
-            <input type="text" name="reference_contact_email" onChange={handleChange}/>
+            <input type="text" name="reference_contact_email" onChange={handleChange} />
           </div>
         </div>
 

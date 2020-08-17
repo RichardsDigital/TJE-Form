@@ -1,0 +1,247 @@
+@media screen and (min-width: 856px) {
+    // Global Styles ------------------------------------------------------------- //
+
+    input,
+    textarea {
+        padding: 8px;
+        margin: 0 6px;
+        resize: none;
+        border: 1px solid rgba(0, 0, 0, 0.315) !important;
+        border-radius: 4px;
+    }
+    .sideLabelRight,
+    .sideLabelLeft {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+    }
+    .employmentDetailsBox input {
+        grid-column: 2/3;
+    }
+    .employmentDetailsBox input,
+    .employmentDetailsBox label {
+        margin: 10px 0;
+        align-self: center;
+    }
+    .contentContainer {
+        border-top: 4px solid #fbd46d;
+    }
+    .contentContainer h1 {
+        padding-top: 20px;
+    }
+    textarea {
+        height: 100%;
+    }
+    .labelledInput {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .flexLabels {
+        width: 100%;
+        display: flex;
+    }
+    .years,
+    .months {
+        margin: 0 10px 0 0;
+    }
+    .employmentDetailsBox {
+        display: grid;
+        grid-template-rows: 7;
+        grid-template-columns: 200px 1fr;
+        padding: 20px;
+    }
+    .employmentDetailsBox .postcode {
+        width: 25%;
+    }
+
+    // Header ------------------------------------------------------------- //
+
+    #pageHeader {
+        background-color: white;
+    }
+    #pageHeader .headerContainer {
+        padding: 50px 50px 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #pageHeader .logo img {
+        height: 140px;
+    }
+    #pageHeader h1 {
+        font-size: 28px;
+    }
+    #sectionOne,
+    #sectionTwo,
+    #sectionThree,
+    #sectionFour,
+    #sectionFive,
+    #sectionSix,
+    #sectionSeven,
+    #sectionEight,
+    #notice {
+        background-color: white;
+        padding: 50px;
+    }
+
+    // Section One ------------------------------------------------------------- //
+
+    #sectionOne .rowOne {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 10% 20% 20% 1fr;
+    }
+    #sectionOne .rowTwo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .rowThree {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .postCodeA,
+    #sectionOne .postCodeB,
+    #sectionOne .postCodeC {
+        width: 18%;
+    }
+    #sectionOne .rowFour {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionOne .rowFive {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    // Section Two ------------------------------------------------------------- //
+
+    .previousAddressA,
+    .previousAddressB,
+    .previousAddressC {
+        height: 40px;
+    }
+    #sectionTwo .addressRow {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #adadad;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .yearsA,
+    .monthsA,
+    .yearsB,
+    .monthsB,
+    .yearsC,
+    .monthsC {
+        width: 40%;
+        height: 24px;
+    }
+    #sectionTwo .postCodeA,
+    #sectionTwo .postCodeB,
+    #sectionTwo .postCodeC {
+        width: 20%;
+    }
+    #sectionTwo .addressRow .flexLabels .sideLabelledInput {
+        align-self: center;
+    }
+
+    // Section Three ------------------------------------------------------------- //
+
+    #sectionThree .row {
+        display: grid;
+        padding: 20px 0;
+    }
+    #sectionThree .row .upper {
+        background-color: #f0f0f0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #sectionThree .checkBoxes {
+        grid-column: 2/3;
+        display: flex;
+        align-content: center;
+    }
+    #sectionThree .checkBoxes label {
+        display: flex;
+        align-items: center;
+    }
+    #sectionThree .row .lower {
+        background-color: #e0e0e0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        display: flex;
+    }
+    #sectionThree .row .lower .description {
+        margin: 10px;
+        width: 60%;
+    }
+    #sectionThree #bankAccount .row {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    #sectionThree #bankAccount .row .upper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .middle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .lower {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+    }
+    #sectionThree #bankAccount .row .lower p {
+        padding-left: 20px;
+    }
+
+    // Section Four ------------------------------------------------------------- //
+
+    #sectionFour .checkBoxContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #sectionFour .checkBoxContainer .description {
+        display: flex;
+        align-items: center;
+    }
+    #sectionFour .checkBoxContainer .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Section Five ------------------------------------------------------------- //
+
+    #sectionFive .occupantsContainer {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #sectionEight .flexLabels {
+        justify-content: space-around;
+    }
+    #sectionEight .additionalComments {
+        display: flex;
+        align-items: center;
+    }
+    #sectionEight .additionalComments {
+        height: 400px;
+        margin-top: 20px;
+    }
+
+    // Notice ------------------------------------------------------------- //
+
+    .buttonContainer {
+        width: 100%;
+    }
+    .submitFormButton {
+        margin: 50px 0;
+        padding: 10px 100px;
+    }
+}

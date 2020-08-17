@@ -12,15 +12,15 @@ function App() {
   const [dataCollection, setDataCollection] = useState(null);
 
   const data = {
-    "personalDetails" : null,
-    "addressHistory" : null,
-    "creditCheck" : null,
-    "bankAccount" : null,
-    "employment" : null,
-    "otherOccupants" : null,
-    "references" : null,
-    "emergencyContact" : null,
-    "decleration" : null
+    "personalDetails": null,
+    "addressHistory": null,
+    "creditCheck": null,
+    "bankAccount": null,
+    "employment": null,
+    "otherOccupants": null,
+    "references": null,
+    "emergencyContact": null,
+    "decleration": null
   };
 
   // Questions name array --------------------
@@ -29,14 +29,14 @@ function App() {
     'email_address', 'nationality', 'years', 'months', 'ni_number', 'required_tenancy_term', 'required_move_in_date'
   ];
   const addressHistory_names = [
-    'previous_address_1', 'years_1', 'months_1', 'postcode_1', 'type_1', 
+    'previous_address_1', 'years_1', 'months_1', 'postcode_1', 'type_1',
     'previous_address_2', 'years_2', 'months_2', 'postcode_2', 'type_2',
     'previous_address_3', 'years_3', 'months_3', 'postcode_3', 'type_3'
   ];
   const creditCheck_names = [
-    'has_been_declared_bankrupt', 'declared_bankrupt_details', 
+    'has_been_declared_bankrupt', 'declared_bankrupt_details',
     'has_ever_entered_into_an_IVA', 'IVA_details',
-    'has_rented_a_property_in_the_past', 'rented_property_details', 
+    'has_rented_a_property_in_the_past', 'rented_property_details',
     'has_been_in_arrears_with_another_landlord', 'landlord_arrears_details',
     'has_been_a_named_person_on_morgage', 'named_person_on_morgage_details',
     'has_had_any_CJJs', 'CJJs_details'
@@ -54,7 +54,7 @@ function App() {
     'annual_salary', 'company_name', 'company_address', 'postcode', 'reference_name', 'reference_contact_number', 'reference_contact_email'
   ];
   const otherOccupants_names = [
-    'occupant_1', 'occupant_2', 'occupant_3', 'occupant_4', 'occupant_5','occupant_6',
+    'occupant_1', 'occupant_2', 'occupant_3', 'occupant_4', 'occupant_5', 'occupant_6',
   ];
   const references_names = [
     'referee_name_1', 'referee_contact_number_1', 'referee_address_1', 'postcode_1', 'relationship_to_you_1',
@@ -82,49 +82,49 @@ function App() {
   const handleChange = (e) => {
 
     // Soft inputs to their objects --------------------
-    
+
     personalDetails_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         personalDetails[e.target.name] = e.target.value;
       }
     });
     addressHistory_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         addressHistory[e.target.name] = e.target.value;
       }
     });
     creditCheck_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         creditCheck[e.target.name] = e.target.value;
       }
     });
     bankAccount_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         bankAccount[e.target.name] = e.target.value;
       }
     });
     employment_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         employment[e.target.name] = e.target.value;
       }
     });
     otherOccupants_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         otherOccupants[e.target.name] = e.target.value;
       }
     });
     references_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         references[e.target.name] = e.target.value;
       }
     });
     emergencyContact_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         emergencyContact[e.target.name] = e.target.value;
       }
     });
     decleration_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         decleration[e.target.name] = e.target.value;
       }
     });
@@ -134,14 +134,14 @@ function App() {
 
   const handleCheckbox = (e) => {
     creditCheck_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         creditCheck[e.target.name] = e.target.checked;
       }
     });
     employment_names.forEach(name => {
-      if (e.target.name === name ) {
+      if (e.target.name === name) {
         bankAccount[e.target.name] = e.target.checked;
-        
+
       }
     });
   }
@@ -179,31 +179,47 @@ function App() {
         </div>
         <div id="sectionOne">
           <div className="contentContainer">
+
             <h1>Section One - Personal Details</h1>
+
             <div className="rowOne">
               <StandardInput title="Title" className="title" name="title" onChange={handleChange} required="required" />
               <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} required="required" />
               <StandardInput title="Middle name" className="middlename" name="middlename" onChange={handleChange} />
               <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} required="required" />
             </div>
-            <div className="rowTwo">
-              <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required" />
-              <div>
-                <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required" />
-                <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required" />
+
+            <div className="contentColumn">
+              <div className="col-1">
+                <div className="rowTwo">
+                  <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required" />
+                </div>
+                <div className="rowThree">
+                  <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required" />
+                  <p>Time at above address</p>
+                  <div className="flexLabels">
+                    <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required" />
+                    <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required" />
+                  </div>
+                </div>
+                <div className="rowFour">
+
+                </div>
+              </div>
+
+              <div className="col-2">
+                <div className="rowTwo">
+                  <div>
+                    <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required" />
+                    <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required" />
+                  </div>
+                </div>
+                <div className="rowThree">
+                  <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required" />
+                </div>
               </div>
             </div>
-            <div className="rowThree">
-              <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required" />
-              <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required" />
-            </div>
-            <p>Time at above address</p>
-            <div className="rowFour">
-              <div className="flexLabels">
-                <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required" />
-                <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required" />
-              </div>
-            </div>
+
             <div className="rowFive">
               <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} required="required" />
               <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} required="required" />

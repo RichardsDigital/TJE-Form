@@ -87,27 +87,45 @@
 
     // Section One ------------------------------------------------------------- //
 
+    #sectionOne .contentColumn {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     #sectionOne .rowOne {
         padding-top: 20px;
         display: grid;
         grid-template-columns: 10% 20% 20% 1fr;
     }
-    #sectionOne .rowTwo {
+    
+    #sectionOne .col-1 .rowTwo, #sectionOne .col-1 .rowThree {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
-    #sectionOne .rowThree {
+    #sectionOne .col-2 .rowOne {
+        padding-top: 20px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
+    .col-1, .col-2 {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+    #sectionOne .col-2 .rowThree {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
     #sectionOne .postCodeA,
     #sectionOne .postCodeB,
     #sectionOne .postCodeC {
         width: 18%;
     }
-    #sectionOne .rowFour {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    #sectionOne .rowFour p {
+        grid-row: 1/2;
+    }
+    #sectionOne .rowFour .flexLabels {
+        grid-row: 2/3;
     }
     #sectionOne .rowFive {
         display: grid;

@@ -368,8 +368,8 @@ function App() {
                   <SideLabelLeft titleLeft="Account Number" className="accountName" name="account_number" />
                   <SideLabelLeft titleLeft="Sort Code" className="bankName" name="sort_code" />
                 </div>
+                <p>How long have you banked here?</p>
                 <div className="lower">
-                  <p>How long have you banked here?</p>
                   <SideLabelRight titleRight="Years" className="accountName" name="bank_years" />
                   <SideLabelRight titleRight="Months" className="bankName" name="bank_months" />
                 </div>

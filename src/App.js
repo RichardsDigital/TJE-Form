@@ -50,7 +50,7 @@ function App() {
     const inputNameskey = Object.keys(inputNames);
     const dataObjkey = Object.keys(dataObjects);
 
-    for (var i = 0; i < inputNameskey.length; i++) {
+    for (let i = 0; i < inputNameskey.length; i++) {
       inputNames[inputNameskey[i]].forEach(name => {
         if (e.target.name === name) {
           dataObjects[dataObjkey[i]][e.target.name] = e.target.value;

@@ -44,3 +44,14 @@ input[type="checkbox"] {
     cursor: pointer;
     margin-right: 10px;
 }
+.toggleButtonsContainer {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.toggleButtonsContainer button {
+    width: 100px;
+    margin: 10px;
+}

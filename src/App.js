@@ -7,9 +7,29 @@ import SideLabelRight from './components/labels/SideLabelRight';
 import Checkbox from './components/labels/Checkbox';
 import FieldInput from './components/labels/FieldInput';
 
+import inputNames from './sharedData/inputNames';
+import dataObjects from './sharedData/dataObjects';
+
 function App() {
 
   const [dataCollection, setDataCollection] = useState(null);
+  const [count, setCount] = useState(1)
+
+  // Hide/Show elements --------------------
+
+  const prev = () => {
+    if (count <= 8 && count > 1) {
+      setCount(count - 1);
+    }
+  }
+
+  const next = () => {
+    if (count < 8 && count > 0) {
+      setCount(count + 1);
+    }
+  }
+
+  // Placeholder object for data --------------------
 
   const data = {
     "personalDetails": null,
@@ -23,124 +43,33 @@ function App() {
     "decleration": null
   };
 
-  // Questions name array --------------------
-
-  const personalDetails_names = ['title', 'forename', 'middlename', 'surname', 'current_address', 'phone_number',
-    'email_address', 'nationality', 'years', 'months', 'ni_number', 'required_tenancy_term', 'required_move_in_date'
-  ];
-  const addressHistory_names = [
-    'previous_address_1', 'years_1', 'months_1', 'postcode_1', 'type_1',
-    'previous_address_2', 'years_2', 'months_2', 'postcode_2', 'type_2',
-    'previous_address_3', 'years_3', 'months_3', 'postcode_3', 'type_3'
-  ];
-  const creditCheck_names = [
-    'has_been_declared_bankrupt', 'declared_bankrupt_details',
-    'has_ever_entered_into_an_IVA', 'IVA_details',
-    'has_rented_a_property_in_the_past', 'rented_property_details',
-    'has_been_in_arrears_with_another_landlord', 'landlord_arrears_details',
-    'has_been_a_named_person_on_morgage', 'named_person_on_morgage_details',
-    'has_had_any_CJJs', 'CJJs_details'
-  ];
-  const bankAccount_names = [
-    'account_name', 'bank_name',
-    'account_number', 'sort_code',
-    'bank_years', 'bank_months'
-  ];
-  const employment_names = [
-    'employedFT', 'self_employed', 'zero_hours',
-    'employedPT', 'unemployed', 'retired',
-    'agency_worker', 'temporary_contract', 'prefer_not_to_say',
-
-    'annual_salary', 'company_name', 'company_address', 'postcode', 'reference_name', 'reference_contact_number', 'reference_contact_email'
-  ];
-  const otherOccupants_names = [
-    'occupant_1', 'occupant_2', 'occupant_3', 'occupant_4', 'occupant_5', 'occupant_6',
-  ];
-  const references_names = [
-    'referee_name_1', 'referee_contact_number_1', 'referee_address_1', 'postcode_1', 'relationship_to_you_1',
-    'referee_name_2', 'referee_contact_number_2', 'referee_address_2', 'postcode_2', 'relationship_to_you_2'
-  ];
-  const emergencyContact_names = [
-    'contact_name', 'contact_number', 'contact_address', 'postcode', 'relationship_to_you'
-  ];
-  const decleration_names = [
-    'signature', 'full_name', 'date', 'additional_comments'
-  ];
-
-  // Objects for placing specific data --------------------
-
-  const personalDetails = {};
-  const addressHistory = {};
-  const creditCheck = {};
-  const bankAccount = {};
-  const employment = {};
-  const otherOccupants = {};
-  const references = {};
-  const emergencyContact = {};
-  const decleration = {};
-
   const handleChange = (e) => {
 
-    // Soft inputs to their objects --------------------
+    // Sort inputs to their objects --------------------
 
-    personalDetails_names.forEach(name => {
-      if (e.target.name === name) {
-        personalDetails[e.target.name] = e.target.value;
-      }
-    });
-    addressHistory_names.forEach(name => {
-      if (e.target.name === name) {
-        addressHistory[e.target.name] = e.target.value;
-      }
-    });
-    creditCheck_names.forEach(name => {
-      if (e.target.name === name) {
-        creditCheck[e.target.name] = e.target.value;
-      }
-    });
-    bankAccount_names.forEach(name => {
-      if (e.target.name === name) {
-        bankAccount[e.target.name] = e.target.value;
-      }
-    });
-    employment_names.forEach(name => {
-      if (e.target.name === name) {
-        employment[e.target.name] = e.target.value;
-      }
-    });
-    otherOccupants_names.forEach(name => {
-      if (e.target.name === name) {
-        otherOccupants[e.target.name] = e.target.value;
-      }
-    });
-    references_names.forEach(name => {
-      if (e.target.name === name) {
-        references[e.target.name] = e.target.value;
-      }
-    });
-    emergencyContact_names.forEach(name => {
-      if (e.target.name === name) {
-        emergencyContact[e.target.name] = e.target.value;
-      }
-    });
-    decleration_names.forEach(name => {
-      if (e.target.name === name) {
-        decleration[e.target.name] = e.target.value;
-      }
-    });
+    const inputNameskey = Object.keys(inputNames);
+    const dataObjkey = Object.keys(dataObjects);
+
+    for (var i = 0; i < inputNameskey.length; i++) {
+      inputNames[inputNameskey[i]].forEach(name => {
+        if (e.target.name === name) {
+          dataObjects[dataObjkey[i]][e.target.name] = e.target.value;
+        }
+      });
+    }
   }
 
   // Sort checkboxes to their objects --------------------
 
   const handleCheckbox = (e) => {
-    creditCheck_names.forEach(name => {
+    inputNames.creditCheck_names.forEach(name => {
       if (e.target.name === name) {
-        creditCheck[e.target.name] = e.target.checked;
+        dataObjects.creditCheck[e.target.name] = e.target.checked;
       }
     });
-    employment_names.forEach(name => {
+    inputNames.employment_names.forEach(name => {
       if (e.target.name === name) {
-        bankAccount[e.target.name] = e.target.checked;
+        dataObjects.bankAccount[e.target.name] = e.target.checked;
       }
     });
   }
@@ -149,38 +78,22 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    data["personalDetails"] = personalDetails;
-    data["addressHistory"] = addressHistory;
-    data["creditCheck"] = creditCheck;
-    data["bankAccount"] = bankAccount;
-    data["employment"] = employment;
-    data["otherOccupants"] = otherOccupants;
-    data["references"] = references;
-    data["decleration"] = decleration;
+    data["personalDetails"] = dataObjects.personalDetails;
+    data["addressHistory"] = dataObjects.addressHistory;
+    data["creditCheck"] = dataObjects.creditCheck;
+    data["bankAccount"] = dataObjects.bankAccount;
+    data["employment"] = dataObjects.employment;
+    data["otherOccupants"] = dataObjects.otherOccupants;
+    data["references"] = dataObjects.references;
+    data["decleration"] = dataObjects.decleration;
     setDataCollection(data);
   }
+
+  // Log data once state updates --------------------
 
   useEffect(() => {
     console.log(dataCollection);
   });
-
-  // Hide/Show elements --------------------
-
-  const [count, setCount] = useState(1)
-
-  // const sectionOne = useRef();
-
-  const prev = () => {
-    if (count <= 8 && count > 1) {
-      setCount(count - 1);
-    }
-  }
-
-  const next = () => {
-    if (count < 8 && count > 0) {
-      setCount(count + 1);
-    }
-  }
 
   return (
     <div className="App">
@@ -572,11 +485,13 @@ function App() {
             </div>
           </div>
           : null}
+
       </form>
       <div className="toggleButtonsContainer">
-          <button onClick={prev}>Previous</button>
-          <button onClick={next}>Next</button>
-        </div>
+        <button onClick={prev}>Previous</button>
+        <button onClick={next}>Next</button>
+      </div>
+
     </div>
   );
 }

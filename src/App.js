@@ -1,492 +1,99 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/global.scss';
-import logo from './images/TJE.png';
-import StandardInput from './components/labels/StandardInput';
-import SideLabelLeft from './components/labels/SideLabelLeft';
-import SideLabelRight from './components/labels/SideLabelRight';
-import Checkbox from './components/labels/Checkbox';
-import FieldInput from './components/labels/FieldInput';
 
-import inputNames from './sharedData/inputNames';
-import dataObjects from './sharedData/dataObjects';
+import Header from './components/partials/Header';
+import SectionOne from './components/formSections/SectionOne';
+import SectionTwo from './components/formSections/SectionTwo';
+import SectionThree from './components/formSections/SectionThree';
+import SectionFour from './components/formSections/SectionFour';
+import SectionFive from './components/formSections/SectionFive';
+import SectionSix from './components/formSections/SectionFive';
+import SectionSeven from './components/formSections/SectionFive';
+import SectionEight from './components/formSections/SectionFive';
 
 function App() {
 
-  const [dataCollection, setDataCollection] = useState(null);
-  const [count, setCount] = useState(1)
+  const [pageIndex, setPageIndex] = useState(1);
+  const [formData, setFormData] = useState({
+    personalDetails: {},
+    addressHistory: {},
+    creditCheck: {},
+    bankAccount: {},
+    employment: {},
+    otherOccupants: {},
+    references: {},
+    emergencyContact: {},
+    decleration: {}
+  });
 
   // Hide/Show elements --------------------
 
   const prev = () => {
-    if (count <= 8 && count > 1) {
-      setCount(count - 1);
+    if (pageIndex <= 8 && pageIndex > 1) {
+      setPageIndex(pageIndex - 1);
     }
   }
 
   const next = () => {
-    if (count < 8 && count > 0) {
-      setCount(count + 1);
+    if (pageIndex < 8 && pageIndex > 0) {
+      setPageIndex(pageIndex + 1);
     }
   }
 
-  // Placeholder object for data --------------------
+  // // Log data once state updates --------------------
 
-  const data = {
-    "personalDetails": null,
-    "addressHistory": null,
-    "creditCheck": null,
-    "bankAccount": null,
-    "employment": null,
-    "otherOccupants": null,
-    "references": null,
-    "emergencyContact": null,
-    "decleration": null
-  };
-
-  const handleChange = (e) => {
-
-    // Sort inputs to their objects --------------------
-
-    const inputNameskey = Object.keys(inputNames);
-    const dataObjkey = Object.keys(dataObjects);
-
-    for (let i = 0; i < inputNameskey.length; i++) {
-      inputNames[inputNameskey[i]].forEach(name => {
-        if (e.target.name === name) {
-          dataObjects[dataObjkey[i]][e.target.name] = e.target.value;
-        }
-      });
-    }
+  const handleSubmit = () => {
+    console.log(formData);
   }
 
-  // Sort checkboxes to their objects --------------------
-
-  const handleCheckbox = (e) => {
-    inputNames.creditCheck_names.forEach(name => {
-      if (e.target.name === name) {
-        dataObjects.creditCheck[e.target.name] = e.target.checked;
-      }
-    });
-    inputNames.employment_names.forEach(name => {
-      if (e.target.name === name) {
-        dataObjects.bankAccount[e.target.name] = e.target.checked;
-      }
-    });
-  }
-
-  // Push objects into data array --------------------
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    data["personalDetails"] = dataObjects.personalDetails;
-    data["addressHistory"] = dataObjects.addressHistory;
-    data["creditCheck"] = dataObjects.creditCheck;
-    data["bankAccount"] = dataObjects.bankAccount;
-    data["employment"] = dataObjects.employment;
-    data["otherOccupants"] = dataObjects.otherOccupants;
-    data["references"] = dataObjects.references;
-    data["decleration"] = dataObjects.decleration;
-    setDataCollection(data);
-  }
-
-  // Log data once state updates --------------------
-
-  useEffect(() => {
-    console.log(dataCollection);
-  });
+  // useEffect(() => {
+  //   console.log(dataCollection);
+  // });
 
   return (
     <div className="App">
       <form>
-        <div id="pageHeader">
-          <div className="headerContainer">
-            <div className="logo">
-              <img src={logo} alt="logo" />
-            </div>
-            <h1>Application Form</h1>
-          </div>
-        </div>
+        <Header />
 
-        {count === 1 ?
-
-          <div id="sectionOne">
-            <div className="contentContainer">
-
-              <h1>Section One - Personal Details</h1>
-
-              <div className="rowOne">
-                <StandardInput title="Title" className="title" name="title" onChange={handleChange} required="required" />
-                <StandardInput title="Forename" className="forename" name="forename" onChange={handleChange} required="required" />
-                <StandardInput title="Middle name" className="middlename" name="middlename" onChange={handleChange} />
-                <StandardInput title="Surname" className="surname" name="surname" onChange={handleChange} required="required" />
-              </div>
-
-              <div className="contentColumn">
-                <div className="col-1">
-                  <div className="rowTwo">
-                    <FieldInput title="Current Address" className="currentAddress" name="current_address" onChange={handleChange} required="required" />
-                  </div>
-                  <div className="rowThree">
-                    <StandardInput title="Postcode" className="postCode" name="postcode" onChange={handleChange} required="required" />
-                    <p>Time at above address</p>
-                    <div className="flexLabels">
-                      <SideLabelRight titleRight="Years" className="years" name="years" onChange={handleChange} required="required" />
-                      <SideLabelRight titleRight="Months" className="months" name="months" onChange={handleChange} required="required" />
-                    </div>
-                  </div>
-                  <div className="rowFour">
-
-                  </div>
-                </div>
-
-                <div className="col-2">
-                  <div className="rowTwo">
-                    <div>
-                      <StandardInput title="Phone Number" className="phoneNumber" name="phone_number" onChange={handleChange} required="required" />
-                      <StandardInput title="Email Address" className="emailAddress" name="email_address" onChange={handleChange} required="required" />
-                    </div>
-                  </div>
-                  <div className="rowThree">
-                    <StandardInput title="Nationality" className="nationality" name="nationality" onChange={handleChange} required="required" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="rowFive">
-                <StandardInput title="National Insurance Number" className="niNumber" name="ni_number" onChange={handleChange} required="required" />
-                <StandardInput title="Required Tenancy Term" className="requiredTenancyTerm" name="required_tenancy_term" onChange={handleChange} required="required" />
-                <StandardInput title="Required move in date" className="requiredMoveInDate" name="required_move_in_date" onChange={handleChange} required="required" />
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 1 ?
+          <SectionOne formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 2 ?
-
-          <div id="sectionTwo">
-            <div className="contentContainer">
-              <h1>Section Two - Address History</h1>
-              <p><i>If you have your current address for less than three years please provide details for three years worth of address history.</i></p>
-
-              <div className="addressRow">
-                <FieldInput className="previousAddressA" name="previous_address_1" title="Previous Address 1" onChange={handleChange} />
-                <div className="flexLabels">
-                  <SideLabelRight titleRight="Years" className="yearsA" name="years_1" onChange={handleChange} />
-                  <SideLabelRight titleRight="Months" className="monthsA" name="months_1" onChange={handleChange} />
-                </div>
-                <StandardInput className="postCodeA" name="postcode_1" title="Post Code" onChange={handleChange} />
-                <StandardInput className="typeA" name="type_1" title="Type" onChange={handleChange} />
-              </div>
-
-              <div className="addressRow">
-                <FieldInput className="previousAddressB" name="previous_address_2" title="Previous Address 2" onChange={handleChange} />
-                <div className="flexLabels">
-                  <SideLabelRight titleRight="Years" className="yearsB" name="years_2" onChange={handleChange} />
-                  <SideLabelRight titleRight="Months" className="monthsB" name="months_2" onChange={handleChange} />
-                </div>
-                <StandardInput className="postCodeB" name="post_code_2" title="Post Code" onChange={handleChange} />
-                <StandardInput className="typeB" name="type_2" title="Type" onChange={handleChange} />
-              </div>
-
-              <div className="addressRow">
-                <FieldInput className="previousAddressC" name="previous_address_3" title="Previous Address 3" onChange={handleChange} />
-                <div className="flexLabels">
-                  <SideLabelRight titleRight="Years" className="yearsC" name="years_3" onChange={handleChange} />
-                  <SideLabelRight titleRight="Months" className="monthsC" name="months_3" onChange={handleChange} />
-                </div>
-                <StandardInput className="postCodeC" name="postcode_3" title="Post Code" onChange={handleChange} />
-                <StandardInput className="typeC" name="type_3" title="Type" onChange={handleChange} />
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 2 ?
+          <SectionTwo formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 3 ?
-
-          <div id="sectionThree">
-            <div className="contentContainer">
-              <h1>Section Three - Credit Check</h1>
-              <p><i>By completing the below and the remainder of this application you agree to a soft credit Check
-              being carried out to confirm the validity of your application. Please nore, any instances in
-              which you prefer not to answer may affect your application.
-                    </i></p>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you ever been declared bankrupt? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_been_declared_bankrupt" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_declared_bankrupt" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_declared_bankrupt" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="declared_bankrupt_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you ever entered into an IVA? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_ever_entered_into_an_IVA" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_ever_entered_into_an_IVA" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_ever_entered_into_an_IVA" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="IVA_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you ever rented a property in the past? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_rented_a_property_in_the_past" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_rented_a_property_in_the_past" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_rented_a_property_in_the_past" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="rented_property_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you even been, or are you in arrears with another landlord? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_been_in_arrears_with_another_landlord" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_in_arrears_with_another_landlord" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_in_arrears_with_another_landlord" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="landlord_arrears_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you ever been a named person on a mortgage? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_been_a_named_person_on_morgage" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_a_named_person_on_morgage" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_been_a_named_person_on_morgage" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="named_person_on_morgage_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="upper">
-                  <p>Have you ever had or have any CJJs? If Yes, please provide details below:</p>
-                  <div className="checkBoxes">
-                    <Checkbox type="checkbox" name="has_had_any_CJJs" value="yes" label="Yes" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_had_any_CJJs" value="no" label="No" onChange={handleCheckbox} />
-                    <Checkbox type="checkbox" name="has_had_any_CJJs" value="prefer not to answer" label="Prefer not to answer" onChange={handleCheckbox} />
-                  </div>
-                </div>
-                <div className="lower">
-                  <StandardInput className="description" name="CJJs_details" onChange={handleChange} />
-                </div>
-              </div>
-
-              <div id="bankAccount">
-                <h1>Bank Account</h1>
-                <div className="row">
-                  <div className="upper">
-                    <SideLabelLeft titleLeft="Account Name" className="accountName" name="account_name" />
-                    <SideLabelLeft titleLeft="Bank Name" className="bankName" name="bank_name" />
-                  </div>
-                  <div className="middle">
-                    <SideLabelLeft titleLeft="Account Number" className="accountName" name="account_number" />
-                    <SideLabelLeft titleLeft="Sort Code" className="bankName" name="sort_code" />
-                  </div>
-                  <p>How long have you banked here?</p>
-                  <div className="lower">
-                    <SideLabelRight titleRight="Years" className="accountName" name="bank_years" />
-                    <SideLabelRight titleRight="Months" className="bankName" name="bank_months" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 3 ?
+          <SectionThree formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 4 ?
-
-          <div id="sectionFour">
-            <div className="contentContainer">
-              <h1>Section Four - Employment</h1>
-              <div className="checkBoxContainer">
-                <div className="description">
-                  <p>Current Employment Status, <br></br> please tick which applies</p>
-                </div>
-                <div className="row">
-                  <Checkbox type="checkbox" label="Employed FT" name="employedFT" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Self Employed" name="self_employed" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Zero Hours" name="zero_hours" onChange={handleCheckbox} />
-                </div>
-                <div className="row">
-                  <Checkbox type="checkbox" label="Employed PT" name="employedPT" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Unemployed" name="unemployed" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Retired" name="retired" onChange={handleCheckbox} />
-                </div>
-                <div className="row">
-                  <Checkbox type="checkbox" label="Agency Worker" name="agency_worker" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Temporary Contract" name="temporary_contract" onChange={handleCheckbox} />
-                  <Checkbox type="checkbox" label="Prefer not to say" name="prefer_not_to_say" onChange={handleCheckbox} />
-                </div>
-              </div>
-            </div>
-
-            <StandardInput className="type" title="Primary source of income if unemployed" name="primary_source_of_income" onChange={handleChange} />
-
-            <p><i>If unemployed, self-employed or retired please now continue to section 5:</i></p>
-
-            <div className="employmentDetailsBox">
-              <label>Annual Salary</label>
-              <input type="text" name="annual_salary" onChange={handleChange} />
-              <label>Company Name</label>
-              <input type="text" name="company_name" onChange={handleChange} />
-              <label>Company Address</label>
-              <input type="text" name="company_address" onChange={handleChange} />
-              <label>Postcode</label>
-              <input type="text" name="postcode" className="postcode" onChange={handleChange} />
-              <label>Reference Name</label>
-              <input type="text" name="reference_name" onChange={handleChange} />
-              <label>Reference Contact Number</label>
-              <input type="text" name="reference_contact_number" onChange={handleChange} />
-              <label>Reference Contact Email</label>
-              <input type="text" name="reference_contact_email" onChange={handleChange} />
-            </div>
-          </div>
-
+        {pageIndex === 4 ?
+          <SectionFour formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 5 ?
-
-          <div id="sectionFive">
-            <div className="contentContainer">
-              <h1>Section Five - Other Occupants</h1>
-              <p><i>Please use this space to name all other occupants that will be within the property:</i></p>
-              <div className="occupantsContainer">
-                <FieldInput name="occupant_1" onChange={handleChange} />
-                <FieldInput name="occupant_2" onChange={handleChange} />
-                <FieldInput name="occupant_3" onChange={handleChange} />
-                <FieldInput name="occupant_4" onChange={handleChange} />
-                <FieldInput name="0ccupant_5" onChange={handleChange} />
-                <FieldInput name="0ccupant_6" onChange={handleChange} />
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 5 ?
+          <SectionFive formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 6 ?
-
-          <div id="sectionSix">
-            <div className="contentContainer">
-              <h1>Section Six - References</h1>
-              <p><i>Please list two references of people we can contact regarding you personally
-              Ideally this will be a property manager of previous landlord. Try to avoid using family members and really close friends.
-              It can include but is not limited to co-workers, past-teachers, previous employers, family friends, mentors or former landlords.
-                    </i></p>
-              <h2>Referee One</h2>
-              <div className="employmentDetailsBox">
-                <label>Referee Name</label>
-                <input type="text" name="referee_name_1" onChange={handleChange} />
-                <label>Referee Contact Number</label>
-                <input type="text" name="referee_contact_number_1" onChange={handleChange} />
-                <label>Referee Address</label>
-                <input type="text" name="referee_address_1" onChange={handleChange} />
-                <label>Postcode</label>
-                <input type="text" name="postcode_1" className="postcode" onChange={handleChange} />
-                <label>Their relationship to you</label>
-                <input type="text" name="relationship_to_you_1" onChange={handleChange} />
-              </div>
-              <h2>Referee Two</h2>
-              <div className="employmentDetailsBox">
-                <label>Referee Name</label>
-                <input type="text" name="referee_name_2" onChange={handleChange} />
-                <label>Referee Contact Number</label>
-                <input type="text" name="referee_contact_number_2" onChange={handleChange} />
-                <label>Referee Address</label>
-                <input type="text" name="referee_address_2" onChange={handleChange} />
-                <label>Postcode</label>
-                <input type="text" name="postcode_2" className="postcode" onChange={handleChange} />
-                <label>Their relationship to you</label>
-                <input type="text" name="relationship_to_you_2" onChange={handleChange} />
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 6 ?
+          <SectionSix formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 7 ?
-
-          <div id="sectionSeven">
-            <div className="contentContainer">
-              <h1>Section Seven - Emergency Contact</h1>
-              <div className="employmentDetailsBox">
-                <label>Contact Name</label>
-                <input type="text" name="contact_name" onChange={handleChange} />
-                <label>Contact Number</label>
-                <input type="text" name="contact_number" onChange={handleChange} />
-                <label>Contact Address</label>
-                <input type="text" name="contact_address" onChange={handleChange} />
-                <label>Postcode</label>
-                <input type="text" name="postcode" className="postcode" onChange={handleChange} />
-                <label>Their relationship to you</label>
-                <input type="text" name="relationship_to_you" onChange={handleChange} />
-              </div>
-            </div>
-          </div>
-
+        {pageIndex === 7 ?
+          <SectionSeven formData={formData} setFormData={setFormData} />
           : null}
 
-        {count === 8 ?
-
-          <div id="sectionEight">
-            <div className="contentContainer">
-              <h1>Section Eight - Declaration</h1>
-              <SideLabelLeft titleLeft="Signature" name="signature" onChange={handleChange} />
-              <div className="flexLabels">
-                <SideLabelLeft titleLeft="Full Name" name="full_name" onChange={handleChange} />
-                <SideLabelLeft titleLeft="Date" name="date" onChange={handleChange} />
-              </div>
-              <FieldInput title="Additional Comments" name="additional_comments" className="additionalComments" onChange={handleChange} />
-            </div>
-
-            <div id="notice">
-              <div className="noticeParagraph">
-                <p>
-                  <i>
-                    Please note the application fee of £180.00 is none refundable, is it therefore imperative
-                    the information entered is correct.
-                    The application fee is a one off fee to allow Thomas James Estates to conduct the administration
-                    on behalf of the Landlord.
-                    It is seperate from the Holding Deposit which should have been specified for you.
-                    Please note, any holding deposit is also none refundable due to any non-disclosure of relevant
-                    information supporting this application.
-              </i>
-                </p>
-              </div>
-              <div className="buttonContainer">
-                <input type="submit" placeholder="Submit Form" className="submitFormButton" onClick={handleSubmit} />
-              </div>
+        {pageIndex === 8 ?
+          <div>
+            <SectionEight formData={formData} setFormData={setFormData} />
+            <div className="buttonContainer">
+              <input type="submit" placeholder="Submit Form" className="submitFormButton" onClick={handleSubmit} />
             </div>
           </div>
           : null}
 
       </form>
+
       <div className="toggleButtonsContainer">
         <button onClick={prev}>Previous</button>
         <button onClick={next}>Next</button>

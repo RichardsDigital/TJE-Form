@@ -1,6 +1,6 @@
 import React from 'react';
-import SideLabelLeft from '../labels/SideLabelLeft';
-import SideLabelRight from '../labels/SideLabelRight';
+import SideLabelLeft from '../inputs/SideLabelLeft';
+import SideLabelRight from '../inputs/SideLabelRight';
 
 const SectionThreeBankDetails = (props) => {
 

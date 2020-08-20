@@ -1,7 +1,7 @@
 import React from 'react';
 import inputNames from '../../sharedData/inputNames';
-import StandardInput from '../labels/StandardInput';
-import Checkbox from '../labels/Checkbox';
+import StandardInput from '../inputs/StandardInput';
+import Checkbox from '../inputs/Checkbox';
 
 
 const SectionThree = (props) => {

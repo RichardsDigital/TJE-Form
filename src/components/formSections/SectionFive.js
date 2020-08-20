@@ -1,5 +1,5 @@
 import React from 'react';
-import FieldInput from '../labels/FieldInput';
+import FieldInput from '../inputs/FieldInput';
 
 const SectionFive = (props) => {
     const handleChange = (e) => {

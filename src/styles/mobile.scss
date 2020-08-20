@@ -43,6 +43,7 @@
     #sectionSix,
     #sectionSeven,
     #sectionEight,
+    #bankAccount,
     #notice {
         background-color: white;
         padding: 20px;
@@ -174,31 +175,31 @@
     #sectionThree .row .lower .description {
         margin: 10px;
     }
-    #sectionThree #bankAccount .row {
+    #bankAccount .row {
         display: grid;
         padding: 0;
     }
-    #sectionThree #bankAccount .accountName,
-    #sectionThree #bankAccount .bankName {
+    #bankAccount .accountName,
+    #bankAccount .bankName {
         display: inline-flex;
         justify-content: space-around;
     }
-    #sectionThree #bankAccount .row .upper {
+    #bankAccount .row .upper {
         background-color: white;
         display: grid;
         align-items: center;
     }
-    #sectionThree #bankAccount .row .middle {
+    #bankAccount .row .middle {
         display: grid;
         align-items: center;
     }
-    #sectionThree #bankAccount .row .lower {
+    #bankAccount .row .lower {
         background-color: #f5f5f5;
         display: grid;
         align-items: center;
         padding: 20px;
     }
-    #sectionThree #bankAccount .row .lower p {
+    #bankAccount .row .lower p {
         font-weight: 500;
         padding: 20px 0;
     }

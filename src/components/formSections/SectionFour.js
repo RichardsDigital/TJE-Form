@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import StandardInput from '../labels/StandardInput';
-import Checkbox from '../labels/Checkbox';
+import React from 'react';
+import StandardInput from '../inputs/StandardInput';
+import Checkbox from '../inputs/Checkbox';
 
 const SectionFour = (props) => {
 

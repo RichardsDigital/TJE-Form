@@ -1,7 +1,7 @@
 import React from 'react';
-import StandardInput from '../labels/StandardInput';
-import SideLabelRight from '../labels/SideLabelRight';
-import FieldInput from '../labels/FieldInput';
+import StandardInput from '../inputs/StandardInput';
+import SideLabelRight from '../inputs/SideLabelRight';
+import FieldInput from '../inputs/FieldInput';
 
 const SectionTwo = (props) => {
 

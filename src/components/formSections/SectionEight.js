@@ -1,6 +1,6 @@
 import React from 'react';
-import SideLabelLeft from '../labels/SideLabelLeft';
-import FieldInput from '../labels/FieldInput';
+import SideLabelLeft from '../inputs/SideLabelLeft';
+import FieldInput from '../inputs/FieldInput';
 
 const SectionEight = (props) => {
     const handleChange = (e) => {

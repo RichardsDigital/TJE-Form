@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
@@ -13,6 +13,8 @@ import SectionSeven from './components/formSections/SectionSeven';
 import SectionEight from './components/formSections/SectionEight';
 
 function App() {
+  const node = useRef();
+  const [isHidden, setIsHidden] = useState();
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     personalDetails: {},
@@ -31,12 +33,16 @@ function App() {
   const prev = () => {
     if (pageIndex <= 8 && pageIndex > 1) {
       setPageIndex(pageIndex - 1);
-    }
+      setIsHidden('visible');
+    } 
   }
 
   const next = () => {
     if (pageIndex < 8 && pageIndex > 0) {
       setPageIndex(pageIndex + 1);
+    } 
+    if (pageIndex === 7) {
+      setIsHidden('hidden');
     }
   }
 
@@ -96,7 +102,7 @@ function App() {
 
       <div className="toggleButtonsContainer">
         <button onClick={prev}>Previous</button>
-        <button onClick={next}>Next</button>
+        <button onClick={next} ref={node} style={{visibility: isHidden}}>Next</button>
       </div>
 
     </div>

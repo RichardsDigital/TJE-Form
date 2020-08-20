@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { dataAssign } from '../../sharedData/dataObjects';
-import StandardInput from '../labels/StandardInput';
-import SideLabelRight from '../labels/SideLabelRight';
-import FieldInput from '../labels/FieldInput';
+import React from 'react';
+import StandardInput from '../inputs/StandardInput';
+import SideLabelRight from '../inputs/SideLabelRight';
+import FieldInput from '../inputs/FieldInput';
 
 const SectionOne = (props) => {
 

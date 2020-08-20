@@ -59,6 +59,12 @@
 
     #pageHeader {
         background-color: white;
+        max-width: 1650px;
+        margin: 0 auto;
+        @media screen and (max-width: 855px) {
+            max-width: 100%;
+            margin: 0;
+        }
     }
     #pageHeader .headerContainer {
         padding: 50px 50px 0px 50px;
@@ -80,8 +86,15 @@
     #sectionSix,
     #sectionSeven,
     #sectionEight,
+    #bankAccount,
     #notice {
         background-color: white;
+        max-width: 1650px;
+        margin: 0 auto;
+        @media screen and (max-width: 855px) {
+            max-width: 100%;
+            margin: 0;
+        }
         padding: 50px;
     }
 
@@ -194,26 +207,29 @@
         margin: 10px;
         width: 60%;
     }
-    #sectionThree #bankAccount .row {
+    #bankAccount {
+        padding: 50px;
+    }
+    #bankAccount .row {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
     }
-    #sectionThree #bankAccount .row .upper {
+    #bankAccount .row .upper {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
     }
-    #sectionThree #bankAccount .row .middle {
+    #bankAccount .row .middle {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
     }
-    #sectionThree #bankAccount .row .lower {
+    #bankAccount .row .lower {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
     }
-    #sectionThree #bankAccount .row .lower p {
+    #bankAccount .row .lower p {
         padding-left: 20px;
     }
 
@@ -255,10 +271,13 @@
     // Notice ------------------------------------------------------------- //
 
     .buttonContainer {
-        width: 100%;
+        background-color: white;
+        max-width: 1650px;
+        margin: 0 auto;
+        background-color: white;
     }
     .submitFormButton {
-        margin: 50px 0;
+        margin:  0 0 50px 0;
         padding: 10px 100px;
     }
 }

@@ -144,7 +144,7 @@ const SectionOne = (props) => {
                         onChange={handleChange}
                         required="required" />
                     <StandardInput
-                        itle="Required Tenancy Term"
+                        title="Required Tenancy Term"
                         className="requiredTenancyTerm"
                         name="required_tenancy_term"
                         value={props.formData.personalDetails.required_tenancy_term || ''}

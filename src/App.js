@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
 import Header from './components/partials/Header';
@@ -7,12 +8,11 @@ import SectionTwo from './components/formSections/SectionTwo';
 import SectionThree from './components/formSections/SectionThree';
 import SectionFour from './components/formSections/SectionFour';
 import SectionFive from './components/formSections/SectionFive';
-import SectionSix from './components/formSections/SectionFive';
-import SectionSeven from './components/formSections/SectionFive';
-import SectionEight from './components/formSections/SectionFive';
+import SectionSix from './components/formSections/SectionSix';
+import SectionSeven from './components/formSections/SectionSeven';
+import SectionEight from './components/formSections/SectionEight';
 
 function App() {
-
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     personalDetails: {},
@@ -42,13 +42,10 @@ function App() {
 
   // // Log data once state updates --------------------
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(formData);
   }
-
-  // useEffect(() => {
-  //   console.log(dataCollection);
-  // });
 
   return (
     <div className="App">
@@ -64,7 +61,10 @@ function App() {
           : null}
 
         {pageIndex === 3 ?
-          <SectionThree formData={formData} setFormData={setFormData} />
+          <div>
+            <SectionThree formData={formData} setFormData={setFormData} />
+            <SectionThreeBankDetails formData={formData} setFormData={setFormData} />
+          </div>
           : null}
 
         {pageIndex === 4 ?

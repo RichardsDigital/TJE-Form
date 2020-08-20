@@ -1,15 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StandardInput from '../labels/StandardInput';
 import Checkbox from '../labels/Checkbox';
 
 const SectionFour = (props) => {
 
     const handleChange = (e) => {
-        let dummy = Object.assign({}, props.formData.employment);
-        dummy[e.target.name] = e.target.value;
-        props.setFormData({ employment: dummy });
+        let dummy_1 = Object.assign({}, props.formData.personalDetails);
+        let dummy_2 = Object.assign({}, props.formData.addressHistory);
+        let dummy_3 = Object.assign({}, props.formData.creditCheck);
+        let dummy_4 = Object.assign({}, props.formData.bankAccount);
+        let dummy_5 = Object.assign({}, props.formData.employment);
+        let dummy_6 = Object.assign({}, props.formData.otherOccupants);
+        let dummy_7 = Object.assign({}, props.formData.references);
+        let dummy_8 = Object.assign({}, props.formData.emergencyContact);
+        let dummy_9 = Object.assign({}, props.formData.decleration);
+        if (e.target.type === 'checkbox') {
+            dummy_5[e.target.name] = e.target.checked;
+        }
+        else {
+            dummy_5[e.target.name] = e.target.value;
+        }
+        props.setFormData({
+            personalDetails: dummy_1,
+            addressHistory: dummy_2,
+            creditCheck: dummy_3,
+            bankAccount: dummy_4,
+            employment: dummy_5,
+            otherOccupants: dummy_6,
+            references: dummy_7,
+            emergencyContact: dummy_8,
+            decleration: dummy_9
+        });
     }
-
     return (
         <div id="sectionFour">
             <div className="contentContainer">
@@ -19,19 +41,19 @@ const SectionFour = (props) => {
                         <p>Current Employment Status, <br></br> please tick which applies</p>
                     </div>
                     <div className="row">
-                        <Checkbox type="checkbox" label="Employed FT" name="employedFT" value={props.formData.employment.employedFT || ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Self Employed" name="self_employed" value={props.formData.employment.self_employed|| ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Zero Hours" name="zero_hours" value={props.formData.employment.zero_hours || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Employed FT" name="employedFT" defaultChecked={props.formData.employment.employedFT} value={props.formData.employment.employedFT || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Self Employed" name="self_employed" defaultChecked={props.formData.employment.self_employed} value={props.formData.employment.self_employed || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Zero Hours" name="zero_hours" defaultChecked={props.formData.employment.zero_hours} value={props.formData.employment.zero_hours || ''} onChange={handleChange} />
                     </div>
                     <div className="row">
-                        <Checkbox type="checkbox" label="Employed PT" name="employedPT" value={props.formData.employment.employedPT || ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Unemployed" name="unemployed" value={props.formData.employment.unemployed|| ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Retired" name="retired" value={props.formData.employment.retired || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Employed PT" name="employedPT" defaultChecked={props.formData.employment.employedPT} value={props.formData.employment.employedPT || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Unemployed" name="unemployed" defaultChecked={props.formData.employment.unemployed} value={props.formData.employment.unemployed || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Retired" name="retired" defaultChecked={props.formData.employment.retired} value={props.formData.employment.retired || ''} onChange={handleChange} />
                     </div>
                     <div className="row">
-                        <Checkbox type="checkbox" label="Agency Worker" name="agency_worker" value={props.formData.employment.agency_worker || ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Temporary Contract" name="temporary_contract" value={props.formData.employment.temporary_contract || ''} onChange={handleChange} />
-                        <Checkbox type="checkbox" label="Prefer not to say" name="prefer_not_to_say" value={props.formData.employment.prefer_not_to_say || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Agency Worker" name="agency_worker" defaultChecked={props.formData.employment.agency_worker} value={props.formData.employment.agency_worker || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Temporary Contract" name="temporary_contract" defaultChecked={props.formData.employment.temporary_contract}  value={props.formData.employment.temporary_contract || ''} onChange={handleChange} />
+                        <Checkbox type="checkbox" label="Prefer not to say" name="prefer_not_to_say" defaultChecked={props.formData.employment.prefer_not_to_say}  value={props.formData.employment.prefer_not_to_say || ''} onChange={handleChange} />
                     </div>
                 </div>
             </div>
@@ -42,11 +64,11 @@ const SectionFour = (props) => {
 
             <div className="employmentDetailsBox">
                 <label>Annual Salary</label>
-                <input type="text" name="annual_salary" value={props.formData.employment.annual_salary|| ''} onChange={handleChange} />
+                <input type="text" name="annual_salary" value={props.formData.employment.annual_salary || ''} onChange={handleChange} />
                 <label>Company Name</label>
-                <input type="text" name="company_name" value={props.formData.employment.company_name|| ''} onChange={handleChange} />
+                <input type="text" name="company_name" value={props.formData.employment.company_name || ''} onChange={handleChange} />
                 <label>Company Address</label>
-                <input type="text" name="company_address" value={props.formData.employment.company_address|| ''} onChange={handleChange} />
+                <input type="text" name="company_address" value={props.formData.employment.company_address || ''} onChange={handleChange} />
                 <label>Postcode</label>
                 <input type="text" name="postcode" value={props.formData.employment.postcode || ''} className="postcode" onChange={handleChange} />
                 <label>Reference Name</label>

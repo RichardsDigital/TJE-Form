@@ -1,12 +1,31 @@
 import React from 'react';
 
-const SectionSix = () => {
+const SectionSix = (props) => {
+
     const handleChange = (e) => {
-        let dummy = Object.assign({}, props.formData.references);
-        dummy[e.target.name] = e.target.value;
-        props.setFormData({references: dummy});
+        let dummy_1 = Object.assign({}, props.formData.personalDetails);
+        let dummy_2 = Object.assign({}, props.formData.addressHistory);
+        let dummy_3 = Object.assign({}, props.formData.creditCheck);
+        let dummy_4 = Object.assign({}, props.formData.bankAccount);
+        let dummy_5 = Object.assign({}, props.formData.employment);
+        let dummy_6 = Object.assign({}, props.formData.otherOccupants);
+        let dummy_7 = Object.assign({}, props.formData.references);
+        let dummy_8 = Object.assign({}, props.formData.emergencyContact);
+        let dummy_9 = Object.assign({}, props.formData.decleration);
+        dummy_7[e.target.name] = e.target.value;
+        props.setFormData({
+            personalDetails: dummy_1,
+            addressHistory: dummy_2,
+            creditCheck: dummy_3,
+            bankAccount: dummy_4,
+            employment: dummy_5,
+            otherOccupants: dummy_6,
+            references: dummy_7,
+            emergencyContact: dummy_8,
+            decleration: dummy_9
+        });
     }
-    
+
     return (
         <div id="sectionSix">
             <div className="contentContainer">
@@ -44,6 +63,6 @@ const SectionSix = () => {
             </div>
         </div>
     )
-}
+};
 
 export default SectionSix;

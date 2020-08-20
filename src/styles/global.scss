@@ -7,13 +7,8 @@
     font-family: "brandon-grotesque", sans-serif;
 }
 .App {
-    background-color: #f1f0f0;
-    max-width: 1650px;
-    margin: 0 auto;
-    @media screen and (max-width: 855px) {
-        max-width: 100%;
-        margin: 0;
-    }
+    background-color: white;
+    width: 100%;
 }
 p,
 input,
@@ -49,9 +44,17 @@ input[type="checkbox"] {
     display: flex;
     position: absolute;
     justify-content: center;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 .toggleButtonsContainer button {
-    width: 100px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
     margin: 10px;
 }
+.toggleButtonsContainer button:hover {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+

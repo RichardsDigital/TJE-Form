@@ -1,17 +1,16 @@
 import React from 'react';
 
 const StandardInput = (props) => {
-    return(
+    return (
         <div className="labelledInput">
             <label>{props.title}</label>
-            <input 
-            className={props.className} 
-            name={props.name} 
-            onChange={props.onChange} 
-            value={props.value} 
-            type="text"
-            required={props.required}
-            />
+            <input
+                className={props.className}
+                name={props.name}
+                onChange={props.onChange}
+                value={props.value}
+                type="text"
+                required={props.required} />
         </div>
     )
 }

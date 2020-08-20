@@ -30,12 +30,29 @@ const SectionEight = (props) => {
         <div id="sectionEight">
             <div className="contentContainer">
                 <h1>Section Eight - Declaration</h1>
-                <SideLabelLeft titleLeft="Signature" name="signature" value={props.formData.decleration.signature || ''} onChange={handleChange} />
+                <SideLabelLeft
+                    titleLeft="Signature"
+                    name="signature"
+                    value={props.formData.decleration.signature || ''}
+                    onChange={handleChange} />
                 <div className="flexLabels">
-                    <SideLabelLeft titleLeft="Full Name" name="full_name" value={props.formData.decleration.full_name || ''} onChange={handleChange} />
-                    <SideLabelLeft titleLeft="Date" name="date" value={props.formData.decleration.date || ''} onChange={handleChange} />
+                    <SideLabelLeft
+                        titleLeft="Full Name"
+                        name="full_name"
+                        value={props.formData.decleration.full_name || ''}
+                        onChange={handleChange} />
+                    <SideLabelLeft
+                        titleLeft="Date"
+                        name="date"
+                        value={props.formData.decleration.date || ''}
+                        onChange={handleChange} />
                 </div>
-                <FieldInput title="Additional Comments" name="additional_comments" value={props.formData.decleration.additional_comments || ''} className="additionalComments" onChange={handleChange} />
+                <FieldInput
+                    title="Additional Comments"
+                    name="additional_comments"
+                    value={props.formData.decleration.additional_comments || ''}
+                    className="additionalComments"
+                    onChange={handleChange} />
             </div>
 
             <div id="notice">

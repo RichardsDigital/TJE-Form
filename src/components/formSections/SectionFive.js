@@ -27,20 +27,38 @@ const SectionFive = (props) => {
     }
 
     return (
-    <div id="sectionFive">
-        <div className="contentContainer">
-            <h1>Section Five - Other Occupants</h1>
-            <p><i>Please use this space to name all other occupants that will be within the property:</i></p>
-            <div className="occupantsContainer">
-                <FieldInput name="occupant_1" value={props.formData.otherOccupants.occupant_1 || ''} onChange={handleChange} />
-                <FieldInput name="occupant_2" value={props.formData.otherOccupants.occupant_2 || ''} onChange={handleChange} />
-                <FieldInput name="occupant_3" value={props.formData.otherOccupants.occupant_3 || ''} onChange={handleChange} />
-                <FieldInput name="occupant_4" value={props.formData.otherOccupants.occupant_4 || ''} onChange={handleChange} />
-                <FieldInput name="occupant_5" value={props.formData.otherOccupants.occupant_5 || ''} onChange={handleChange} />
-                <FieldInput name="occupant_6" value={props.formData.otherOccupants.occupant_6 || ''} onChange={handleChange} />
+        <div id="sectionFive">
+            <div className="contentContainer">
+                <h1>Section Five - Other Occupants</h1>
+                <p><i>Please use this space to name all other occupants that will be within the property:</i></p>
+                <div className="occupantsContainer">
+                    <FieldInput
+                        name="occupant_1"
+                        value={props.formData.otherOccupants.occupant_1 || ''}
+                        onChange={handleChange} />
+                    <FieldInput
+                        name="occupant_2"
+                        value={props.formData.otherOccupants.occupant_2 || ''}
+                        onChange={handleChange} />
+                    <FieldInput
+                        name="occupant_3"
+                        value={props.formData.otherOccupants.occupant_3 || ''}
+                        onChange={handleChange} />
+                    <FieldInput
+                        name="occupant_4"
+                        value={props.formData.otherOccupants.occupant_4 || ''}
+                        onChange={handleChange} />
+                    <FieldInput
+                        name="occupant_5"
+                        value={props.formData.otherOccupants.occupant_5 || ''}
+                        onChange={handleChange} />
+                    <FieldInput
+                        name="occupant_6"
+                        value={props.formData.otherOccupants.occupant_6 || ''}
+                        onChange={handleChange} />
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

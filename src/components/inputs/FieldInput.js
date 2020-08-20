@@ -2,7 +2,8 @@ import React from 'react';
 
 const FieldInput = (props) => {
     return(
-        <div className="labelledInput" style={{gridRow: props.row, gridColumn: props.column}}>
+        <div 
+        className="labelledInput" style={{gridRow: props.row, gridColumn: props.column}}>
             <label>{props.title}</label>
             <textarea 
             className={props.className} 
@@ -10,8 +11,7 @@ const FieldInput = (props) => {
             onChange={props.onChange} 
             value={props.value} 
             type="text"
-            required={props.required}
-            />
+            required={props.required} />
         </div>
     )
 }

@@ -1,18 +1,17 @@
 import React from 'react';
 
 const SideLabelLeft = (props) => {
-    return(
+    return (
         <div className="sideLabelLeft">
             <label>
-            {props.titleLeft}
+                {props.titleLeft}
             </label>
-            <input className={props.className} 
-            name={props.name} 
-            onChange={props.onChange} 
-            value={props.value} 
-            type="text" 
-            required={props.required}
-            />
+            <input className={props.className}
+                name={props.name}
+                onChange={props.onChange}
+                value={props.value}
+                type="text"
+                required={props.required} />
         </div>
     )
 }

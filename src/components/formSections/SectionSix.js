@@ -13,6 +13,39 @@ const SectionSix = (props) => {
         let dummy_8 = Object.assign({}, props.formData.emergencyContact);
         let dummy_9 = Object.assign({}, props.formData.decleration);
         dummy_7[e.target.name] = e.target.value;
+
+        if (e.target.name === 'referee_name_1') {
+            dummy_7.referee_1.name = e.target.value;
+        }
+        else if (e.target.name === 'referee_contact_number_1') {
+            dummy_7.referee_1.contact_number = e.target.value;
+        }
+        else if (e.target.name === 'referee_address_1') {
+            dummy_7.referee_1.address = e.target.value;
+        }
+        else if (e.target.name === 'postcode_1') {
+            dummy_7.referee_1.postcode = e.target.value;
+        }
+        else if (e.target.name === 'relationship_to_you_1') {
+            dummy_7.referee_1.relation = e.target.value;
+        }
+
+        if (e.target.name === 'referee_name_2') {
+            dummy_7.referee_2.name = e.target.value;
+        }
+        else if (e.target.name === 'referee_contact_number_2') {
+            dummy_7.referee_2.contact_number = e.target.value;
+        }
+        else if (e.target.name === 'referee_address_2') {
+            dummy_7.referee_2.address = e.target.value;
+        }
+        else if (e.target.name === 'postcode_2') {
+            dummy_7.referee_2.postcode = e.target.value;
+        }
+        else if (e.target.name === 'relationship_to_you_2') {
+            dummy_7.referee_2.relation = e.target.value;
+        }
+
         props.setFormData({
             personalDetails: dummy_1,
             addressHistory: dummy_2,
@@ -40,66 +73,67 @@ const SectionSix = (props) => {
                     <input
                         type="text"
                         name="referee_name_1"
-                        value={props.formData.references.referee_name_1 || ''}
+                        value={props.formData.references.referee_1.name || ''}
                         onChange={handleChange} />
                     <label>Referee Contact Number</label>
                     <input
                         type="text"
                         name="referee_contact_number_1"
-                        value={props.formData.references.referee_contact_number_1 || ''}
+                        value={props.formData.references.referee_1.contact_number || ''}
                         onChange={handleChange} />
                     <label>Referee Address</label>
                     <input
                         type="text"
                         name="referee_address_1"
-                        value={props.formData.references.referee_address_1 || ''}
+                        value={props.formData.references.referee_1.address || ''}
                         onChange={handleChange} />
                     <label>Postcode</label>
                     <input
                         type="text"
                         name="postcode_1"
-                        value={props.formData.references.postcode_1 || ''}
+                        value={props.formData.references.referee_1.postcode || ''}
                         className="postcode"
                         onChange={handleChange} />
                     <label>Their relationship to you</label>
                     <input
                         type="text"
                         name="relationship_to_you_1"
-                        value={props.formData.references.relationship_to_you_1 || ''}
+                        value={props.formData.references.referee_1.relation || ''}
                         onChange={handleChange} />
                 </div>
+
                 <h2>Referee Two</h2>
                 <div className="employmentDetailsBox">
                     <label>Referee Name</label>
                     <input
                         type="text"
                         name="referee_name_2"
-                        value={props.formData.references.referee_name_2 || ''}
+                        value={props.formData.references.referee_2.name || ''}
                         onChange={handleChange} />
                     <label>Referee Contact Number</label>
                     <input
                         type="text"
                         name="referee_contact_number_2"
-                        value={props.formData.references.referee_contact_number_2 || ''}
+                        value={props.formData.references.referee_2.contact_number || ''}
                         onChange={handleChange} />
                     <label>Referee Address</label>
                     <input
                         type="text"
                         name="referee_address_2"
-                        value={props.formData.references.referee_address_2 || ''}
+                        value={props.formData.references.referee_2.address || ''}
                         onChange={handleChange} />
                     <label>Postcode</label>
                     <input
                         type="text"
                         name="postcode_2"
                         className="postcode"
-                        value={props.formData.references.postcode_2 || ''}
+                        value={props.formData.references.referee_2.postcode || ''}
                         onChange={handleChange} />
                     <label>Their relationship to you</label>
                     <input
                         type="text"
                         name="relationship_to_you_2"
-                        value={props.formData.references.relationship_to_you_2 || ''}
+                        value={props.formData.references.referee_2.relation || ''}
                         onChange={handleChange} />
                 </div>
             </div>

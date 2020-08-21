@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
@@ -13,7 +13,6 @@ import SectionSeven from './components/formSections/SectionSeven';
 import SectionEight from './components/formSections/SectionEight';
 
 function App() {
-  const node = useRef();
   const [isHidden, setIsHidden] = useState({
     previous: 'hidden',
     next: null
@@ -48,15 +47,50 @@ function App() {
       }
     },
     creditCheck: {
-      declared_bankrupt: {},
-      entered_IVA: {},
-      propery_rent: {},
-      arrears_landlord: {}
+      declared_bankrupt: {
+        has_been_declared_bankrupt: null,
+        details: null
+      },
+      entered_IVA: {
+        has_ever_entered_into_an_IVA: null,
+        details: null
+      },
+      propery_rent: {
+        has_rented_a_property_in_the_past: null,
+        details: null
+      },
+      arrears_landlord: {
+        has_been_in_arrears_with_another_landlord: null,
+        details: null
+      },
+      named_on_morgage: {
+        has_been_a_named_person_on_morgage: null,
+        details: null
+      },
+      CJJs: {
+        has_had_any_CJJs: null,
+        details: null
+      }
     },
     bankAccount: {},
     employment: {},
     otherOccupants: {},
-    references: {},
+    references: {
+      referee_1: {
+        name: null,
+        contact_number: null,
+        address: null,
+        postcode: null,
+        relation: null,
+      },
+      referee_2: {
+        name: null,
+        contact_number: null,
+        address: null,
+        postcode: null,
+        relation: null,
+      }
+    },
     emergencyContact: {},
     decleration: {}
   });
@@ -66,24 +100,22 @@ function App() {
   const prev = () => {
     if (pageIndex <= 8 && pageIndex > 1) {
       setPageIndex(pageIndex - 1);
-      setIsHidden({next: 'visible'});
-    } 
-    if (pageIndex === 2) {
-      setIsHidden({previous: 'hidden'});
+      setIsHidden({ next: 'visible' });
     }
-
+    if (pageIndex === 2) {
+      setIsHidden({ previous: 'hidden' });
+    }
     scrollToTop();
   }
 
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
       setPageIndex(pageIndex + 1);
-      setIsHidden({previous: 'visible'});
-    } 
-    if (pageIndex === 7) {
-      setIsHidden({next: 'hidden'});
+      setIsHidden({ previous: 'visible' });
     }
-
+    if (pageIndex === 7) {
+      setIsHidden({ next: 'hidden' });
+    }
     scrollToTop();
   }
 
@@ -146,8 +178,8 @@ function App() {
       </form>
 
       <div className="toggleButtonsContainer">
-        <button onClick={prev} style={{visibility: isHidden.previous}}>Previous</button>
-        <button onClick={next} ref={node} style={{visibility: isHidden.next}}>Next</button>
+        <button onClick={prev} style={{ visibility: isHidden.previous }}>Previous</button>
+        <button onClick={next} style={{ visibility: isHidden.next }}>Next</button>
       </div>
 
     </div>

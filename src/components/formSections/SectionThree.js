@@ -6,41 +6,85 @@ import Checkbox from '../inputs/Checkbox';
 
 const SectionThree = (props) => {
 
-  // const address_1_checkbox_names = ['has_been_declared_bankrupt_a', 'has_been_declared_bankrupt_b', 'has_been_declared_bankrupt_c'];
-  // const address_2_checkbox_names = ['has_ever_entered_into_an_IVA_a', 'has_ever_entered_into_an_IVA_b', 'has_ever_entered_into_an_IVA_c'];
-  // const address_3_checkbox_names = ['has_rented_a_property_in_the_past_a', 'has_rented_a_property_in_the_past_b', 'has_rented_a_property_in_the_past_c'];
+  const bankrupt_checkbox_names = ['has_been_declared_bankrupt_a', 'has_been_declared_bankrupt_b', 'has_been_declared_bankrupt_c'];
+  const IVA_checkbox_names = ['has_ever_entered_into_an_IVA_a', 'has_ever_entered_into_an_IVA_b', 'has_ever_entered_into_an_IVA_c'];
+  const rented_property_checkbox_names = ['has_rented_a_property_in_the_past_a', 'has_rented_a_property_in_the_past_b', 'has_rented_a_property_in_the_past_c'];
+  const landlord_arrears_names = ['has_been_in_arrears_with_another_landlord_a', 'has_been_in_arrears_with_another_landlord_b', 'has_been_in_arrears_with_another_landlord_c'];
+  const morgage_names = ['has_been_a_named_person_on_morgage_a', 'has_been_a_named_person_on_morgage_b', 'has_been_a_named_person_on_morgage_c'];
+  const CJJs_names = ['has_had_any_CJJs_a', 'has_had_any_CJJs_b', 'has_had_any_CJJs_c'];
 
   const handleChange = (e) => {
 
-    inputNames.bankAccount_names.forEach(name => {
-      let dummy_1 = Object.assign({}, props.formData.personalDetails);
-      let dummy_2 = Object.assign({}, props.formData.addressHistory);
-      let dummy_3 = Object.assign({}, props.formData.creditCheck);
-      let dummy_4 = Object.assign({}, props.formData.bankAccount);
-      let dummy_5 = Object.assign({}, props.formData.employment);
-      let dummy_6 = Object.assign({}, props.formData.otherOccupants);
-      let dummy_7 = Object.assign({}, props.formData.references);
-      let dummy_8 = Object.assign({}, props.formData.emergencyContact);
-      let dummy_9 = Object.assign({}, props.formData.decleration);
+    let dummy_1 = Object.assign({}, props.formData.personalDetails);
+    let dummy_2 = Object.assign({}, props.formData.addressHistory);
+    let dummy_3 = Object.assign({}, props.formData.creditCheck);
+    let dummy_4 = Object.assign({}, props.formData.bankAccount);
+    let dummy_5 = Object.assign({}, props.formData.employment);
+    let dummy_6 = Object.assign({}, props.formData.otherOccupants);
+    let dummy_7 = Object.assign({}, props.formData.references);
+    let dummy_8 = Object.assign({}, props.formData.emergencyContact);
+    let dummy_9 = Object.assign({}, props.formData.decleration);
 
-      // address_1_checkbox_names.forEach(name => {
-      //   if (e.target.value === name) {
-      //     dummy_3.declared_bankrupt[e.target.name] = e.target.value;
-      //   }
-      // })
+    bankrupt_checkbox_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.declared_bankrupt.has_been_declared_bankrupt = e.target.value;
+      }
+    });
+    IVA_checkbox_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.entered_IVA.has_ever_entered_into_an_IVA = e.target.value;
+      }
+    });
+    rented_property_checkbox_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.propery_rent.has_rented_a_property_in_the_past = e.target.value;
+      }
+    });
+    landlord_arrears_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.arrears_landlord.has_been_in_arrears_with_another_landlord = e.target.value;
+      }
+    });
+    morgage_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.named_on_morgage.has_been_a_named_person_on_morgage = e.target.value;
+      }
+    });
+    CJJs_names.forEach(name => {
+      if (e.target.name === name) {
+        dummy_3.CJJs.has_had_any_CJJs = e.target.value;
+      }
+    });
+    
+    if (e.target.name === 'declared_bankrupt_details') {
+      dummy_3.declared_bankrupt.details = e.target.value
+    }
+    if (e.target.name === 'IVA_details') {
+      dummy_3.entered_IVA.details = e.target.value
+    }
+    if (e.target.name === 'rented_property_details') {
+      dummy_3.propery_rent.details = e.target.value
+    }
+    if (e.target.name === 'landlord_arrears_details') {
+      dummy_3.arrears_landlord.details = e.target.value
+    }
+    if (e.target.name === 'named_person_on_morgage_details') {
+      dummy_3.named_on_morgage.details = e.target.value
+    }
+    if (e.target.name === 'CJJs_details') {
+      dummy_3.CJJs.details = e.target.value
+    }
 
-      dummy_3[e.target.name] = e.target.value;
-      props.setFormData({
-        personalDetails: dummy_1,
-        addressHistory: dummy_2,
-        creditCheck: dummy_3,
-        bankAccount: dummy_4,
-        employment: dummy_5,
-        otherOccupants: dummy_6,
-        references: dummy_7,
-        emergencyContact: dummy_8,
-        decleration: dummy_9
-      });
+    props.setFormData({
+      personalDetails: dummy_1,
+      addressHistory: dummy_2,
+      creditCheck: dummy_3,
+      bankAccount: dummy_4,
+      employment: dummy_5,
+      otherOccupants: dummy_6,
+      references: dummy_7,
+      emergencyContact: dummy_8,
+      decleration: dummy_9
     });
   }
 
@@ -94,19 +138,19 @@ const SectionThree = (props) => {
               <Checkbox
                 type="checkbox"
                 name="has_ever_entered_into_an_IVA_a"
-                defaultChecked={props.formData.creditCheck.has_ever_entered_into_an_IVA_a}
+                defaultChecked={props.formData.creditCheck.entered_IVA.has_ever_entered_into_an_IVA_a}
                 value="yes" label="Yes"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_ever_entered_into_an_IVA_b"
-                defaultChecked={props.formData.creditCheck.has_ever_entered_into_an_IVA_b}
+                defaultChecked={props.formData.creditCheck.entered_IVA.has_ever_entered_into_an_IVA_b}
                 value="no" label="No"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_ever_entered_into_an_IVA_c"
-                defaultChecked={props.formData.creditCheck.has_ever_entered_into_an_IVA_c}
+                defaultChecked={props.formData.creditCheck.entered_IVA.has_ever_entered_into_an_IVA_c}
                 value="prefer not to answer"
                 label="Prefer not to answer"
                 onChange={handleChange} />
@@ -127,21 +171,21 @@ const SectionThree = (props) => {
               <Checkbox
                 type="checkbox"
                 name="has_rented_a_property_in_the_past_a"
-                defaultChecked={props.formData.creditCheck.has_rented_a_property_in_the_past_a}
+                defaultChecked={props.formData.creditCheck.propery_rent.has_rented_a_property_in_the_past_a}
                 value="yes"
                 label="Yes"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_rented_a_property_in_the_past_b"
-                defaultChecked={props.formData.creditCheck.has_rented_a_property_in_the_past_b}
+                defaultChecked={props.formData.creditCheck.propery_rent.has_rented_a_property_in_the_past_b}
                 value="no"
                 label="No"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_rented_a_property_in_the_past_c"
-                defaultChecked={props.formData.creditCheck.has_rented_a_property_in_the_past_c}
+                defaultChecked={props.formData.creditCheck.propery_rent.has_rented_a_property_in_the_past_c}
                 value="prefer not to answer"
                 label="Prefer not to answer"
                 onChange={handleChange} />

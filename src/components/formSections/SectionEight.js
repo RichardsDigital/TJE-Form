@@ -33,17 +33,21 @@ const SectionEight = (props) => {
                 <SideLabelLeft
                     titleLeft="Signature"
                     name="signature"
+                    className="signature"
                     value={props.formData.decleration.signature || ''}
                     onChange={handleChange} />
                 <div className="flexLabels">
                     <SideLabelLeft
                         titleLeft="Full Name"
                         name="full_name"
+                        className="fullName"
                         value={props.formData.decleration.full_name || ''}
                         onChange={handleChange} />
                     <SideLabelLeft
                         titleLeft="Date"
                         name="date"
+                        className="date"
+                        date="date"
                         value={props.formData.decleration.date || ''}
                         onChange={handleChange} />
                 </div>

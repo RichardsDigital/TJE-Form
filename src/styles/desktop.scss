@@ -4,7 +4,7 @@
     input,
     textarea {
         padding: 8px;
-        margin: 0 6px;
+        margin: 0 6px 4px 6px;
         resize: none;
         border: 1px solid rgba(0, 0, 0, 0.315) !important;
         border-radius: 4px;
@@ -12,8 +12,7 @@
     .sideLabelRight,
     .sideLabelLeft {
         display: flex;
-        width: 100%;
-        padding: 10px;
+        margin: 10px;
     }
     .employmentDetailsBox input {
         grid-column: 2/3;
@@ -38,12 +37,7 @@
         width: 100%;
     }
     .flexLabels {
-        width: 100%;
         display: flex;
-    }
-    .years,
-    .months {
-        margin: 0 10px 0 0;
     }
     .employmentDetailsBox {
         display: grid;
@@ -176,6 +170,10 @@
     #sectionTwo .postCodeC {
         width: 20%;
     }
+    #sectionTwo .addressRow .flexLabels {
+        align-self: end;
+        padding-bottom: 16px;
+    }
     #sectionTwo .addressRow .flexLabels .sideLabelledInput {
         align-self: center;
     }
@@ -204,14 +202,21 @@
         background-color: #e0e0e0;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        display: flex;
     }
     #sectionThree .row .lower .description {
         margin: 10px;
         width: 60%;
     }
-    #bankAccount {
+    #bankAccount .bankAccountContainer {
+        width: 60%;
         padding: 50px;
+        background-color: rgb(245, 245, 245);
+    }
+    #bankAccount .accountName, #bankAccount .accountNumber {
+        width: 130px;
+    }
+    #bankAccount .bankName, #bankAccount .sortCode {
+        width: 90px;
     }
     #bankAccount .row {
         display: grid;
@@ -227,9 +232,11 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
     }
+    #bankAccount .bankTitle {
+        padding-top: 20px;
+    }
     #bankAccount .row .lower {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
         align-items: center;
     }
     #bankAccount .row .lower p {
@@ -258,10 +265,6 @@
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     }
-
-    #sectionEight .flexLabels {
-        justify-content: space-around;
-    }
     #sectionEight .additionalComments {
         display: flex;
         align-items: center;
@@ -271,17 +274,29 @@
         margin-top: 20px;
     }
 
+    // Section Eight ------------------------------------------------------------- //
+
+    #sectionEight .signature, #sectionEight .fullName {
+        width: 90px;
+    }
+    #sectionEight .date {
+        width: 55px;
+    }
+
     // Notice ------------------------------------------------------------- //
 
     .buttonContainer {
         padding: 0 50px;
-        background-color: white;
         max-width: 1650px;
         margin: 0 auto;
-        background-color: white;
     }
     .submitFormButton {
+        background-color: rgb(238, 238, 238);
         margin:  0 0 50px 0;
         padding: 10px 100px;
+        transition: 0.1s;
+    }
+    .submitFormButton:hover {
+        background-color: rgb(216, 216, 216);
     }
 }

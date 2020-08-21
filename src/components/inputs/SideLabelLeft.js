@@ -3,10 +3,10 @@ import React from 'react';
 const SideLabelLeft = (props) => {
     return (
         <div className="sideLabelLeft">
-            <label>
+            <label className={props.className}>
                 {props.titleLeft}
             </label>
-            <input className={props.className}
+            <input
                 name={props.name}
                 onChange={props.onChange}
                 value={props.value}

@@ -14,7 +14,10 @@ import SectionEight from './components/formSections/SectionEight';
 
 function App() {
   const node = useRef();
-  const [isHidden, setIsHidden] = useState();
+  const [isHidden, setIsHidden] = useState({
+    previous: 'hidden',
+    next: null
+  });
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     personalDetails: {},
@@ -33,16 +36,20 @@ function App() {
   const prev = () => {
     if (pageIndex <= 8 && pageIndex > 1) {
       setPageIndex(pageIndex - 1);
-      setIsHidden('visible');
+      setIsHidden({next: 'visible'});
     } 
+    if (pageIndex === 2) {
+      setIsHidden({previous: 'hidden'});
+    }
   }
 
   const next = () => {
-    if (pageIndex < 8 && pageIndex > 0) {
+    if (pageIndex < 8 && pageIndex >= 1) {
       setPageIndex(pageIndex + 1);
+      setIsHidden({previous: 'visible'});
     } 
     if (pageIndex === 7) {
-      setIsHidden('hidden');
+      setIsHidden({next: 'hidden'});
     }
   }
 
@@ -101,8 +108,8 @@ function App() {
       </form>
 
       <div className="toggleButtonsContainer">
-        <button onClick={prev}>Previous</button>
-        <button onClick={next} ref={node} style={{visibility: isHidden}}>Next</button>
+        <button onClick={prev} style={{visibility: isHidden.previous}}>Previous</button>
+        <button onClick={next} ref={node} style={{visibility: isHidden.next}}>Next</button>
       </div>
 
     </div>

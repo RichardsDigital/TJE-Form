@@ -31,20 +31,22 @@ const SectionThreeBankDetails = (props) => {
 
     return (
         <div id="bankAccount">
-            <h1>Bank Account</h1>
-            <div className="row">
-                <div className="upper">
-                    <SideLabelLeft titleLeft="Account Name" className="accountName" name="account_name" value={props.formData.bankAccount.account_name || ''} onChange={handleChange} />
-                    <SideLabelLeft titleLeft="Bank Name" className="bankName" name="bank_name" value={props.formData.bankAccount.bank_name || ''} onChange={handleChange} />
-                </div>
-                <div className="middle">
-                    <SideLabelLeft titleLeft="Account Number" className="accountName" name="account_number" value={props.formData.bankAccount.account_number || ''} onChange={handleChange} />
-                    <SideLabelLeft titleLeft="Sort Code" className="bankName" name="sort_code" value={props.formData.bankAccount.sort_code || ''} onChange={handleChange} />
-                </div>
-                <p>How long have you banked here?</p>
-                <div className="lower">
-                    <SideLabelRight titleRight="Years" className="accountName" name="bank_years" value={props.formData.bankAccount.bank_years || ''} onChange={handleChange} />
-                    <SideLabelRight titleRight="Months" className="bankName" name="bank_months" value={props.formData.bankAccount.bank_months || ''} onChange={handleChange} />
+            <div className='bankAccountContainer'>
+                <h1>Bank Account</h1>
+                <div className="row">
+                    <div className="upper">
+                        <SideLabelLeft titleLeft="Account Name" className="accountName" name="account_name" value={props.formData.bankAccount.account_name || ''} onChange={handleChange} />
+                        <SideLabelLeft titleLeft="Bank Name" className="bankName" name="bank_name" value={props.formData.bankAccount.bank_name || ''} onChange={handleChange} />
+                    </div>
+                    <div className="middle">
+                        <SideLabelLeft titleLeft="Account Number" className="accountNumber" name="account_number" value={props.formData.bankAccount.account_number || ''} onChange={handleChange} />
+                        <SideLabelLeft titleLeft="Sort Code" className="sortCode" name="sort_code" value={props.formData.bankAccount.sort_code || ''} onChange={handleChange} />
+                    </div>
+                    <p className="bankTitle">How long have you banked here?</p>
+                    <div className="lower">
+                        <SideLabelRight titleRight="Years" className="bankYears" name="bank_years" value={props.formData.bankAccount.bank_years || ''} onChange={handleChange} />
+                        <SideLabelRight titleRight="Months" className="bankMonths" name="bank_months" value={props.formData.bankAccount.bank_months || ''} onChange={handleChange} />
+                    </div>
                 </div>
             </div>
         </div>

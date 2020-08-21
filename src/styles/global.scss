@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     font-family: "brandon-grotesque", sans-serif;
+    outline: none;
 }
 .App {
     background-color: white;
@@ -45,6 +46,9 @@ input[type="checkbox"] {
     position: absolute;
     justify-content: center;
     padding-bottom: 50px;
+    @media screen and (max-width: 855px) {
+        margin-top: 80px;
+    }
 }
 .toggleButtonsContainer button {
     background-color: transparent;

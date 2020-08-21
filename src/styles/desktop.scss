@@ -12,7 +12,7 @@
     .sideLabelRight,
     .sideLabelLeft {
         display: flex;
-        margin: 10px;
+        margin: 10px 0;
     }
     .employmentDetailsBox input {
         grid-column: 2/3;
@@ -150,7 +150,7 @@
     }
     #sectionTwo .addressRow {
         background-color: #f5f5f5;
-        border-bottom: 1px solid #adadad;
+        border-top: 1px solid #adadad;
         padding: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -208,8 +208,12 @@
         width: 60%;
     }
     #bankAccount .bankAccountContainer {
+        min-width: 752px;
         width: 60%;
-        padding: 50px;
+        padding: 50px 0 50px 50px;
+        @media screen and (max-width: 1354px) {
+            padding: 2%;
+        }
         background-color: rgb(245, 245, 245);
     }
     #bankAccount .accountName, #bankAccount .accountNumber {

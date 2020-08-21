@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
 import Header from './components/partials/Header';
@@ -108,6 +107,17 @@ function App() {
     scrollToTop();
   }
 
+  const validate = (e) => {
+    if (pageIndex === 8) {
+      e.preventDefault();
+      console.log(formData);
+    }
+    else {
+      e.preventDefault();
+      next();
+    }
+  }
+
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
       setPageIndex(pageIndex + 1);
@@ -125,62 +135,43 @@ function App() {
 
   // // Log data once state updates --------------------
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log(formData);
-  }
-
   return (
     <div className="App">
-      <form>
-        <Header />
+      <Header />
 
-        {pageIndex === 1 ?
-          <SectionOne formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 1 ?
+        <SectionOne formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 2 ?
-          <SectionTwo formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 2 ?
+        <SectionTwo formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 3 ?
-          <div>
-            <SectionThree formData={formData} setFormData={setFormData} />
-            <SectionThreeBankDetails formData={formData} setFormData={setFormData} />
-          </div>
-          : null}
+      {pageIndex === 3 ?
+        <div>
+          <SectionThree formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        </div>
+        : null}
 
-        {pageIndex === 4 ?
-          <SectionFour formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 4 ?
+        <SectionFour formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 5 ?
-          <SectionFive formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 5 ?
+        <SectionFive formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 6 ?
-          <SectionSix formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 6 ?
+        <SectionSix formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 7 ?
-          <SectionSeven formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 7 ?
+        <SectionSeven formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 8 ?
-          <div>
-            <SectionEight formData={formData} setFormData={setFormData} />
-            <div className="buttonContainer">
-              <input type="submit" placeholder="Submit Form" className="submitFormButton" onClick={handleSubmit} />
-            </div>
-          </div>
-          : null}
-
-      </form>
-
-      <div className="toggleButtonsContainer">
-        <button onClick={prev} style={{ visibility: isHidden.previous }}>Previous</button>
-        <button onClick={next} style={{ visibility: isHidden.next }}>Next</button>
-      </div>
+      {pageIndex === 8 ?
+        <SectionEight formData={formData} setFormData={setFormData} prev={prev} isHidden={isHidden} validate={validate} />
+        : null}
 
     </div>
   );

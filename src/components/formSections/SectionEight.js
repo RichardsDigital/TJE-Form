@@ -27,54 +27,65 @@ const SectionEight = (props) => {
         });
     }
     return (
-        <div id="sectionEight">
-            <div className="contentContainer">
-                <h1>Section Eight - Declaration</h1>
-                <SideLabelLeft
-                    titleLeft="Signature"
-                    name="signature"
-                    className="signature"
-                    value={props.formData.decleration.signature || ''}
-                    onChange={handleChange} />
-                <div className="flexLabels">
+        <form onSubmit={props.validate}>
+            <div id="sectionEight">
+                <div className="contentContainer">
+                    <h1>Section Eight - Declaration</h1>
                     <SideLabelLeft
-                        titleLeft="Full Name"
-                        name="full_name"
-                        className="fullName"
-                        value={props.formData.decleration.full_name || ''}
-                        onChange={handleChange} />
-                    <SideLabelLeft
-                        titleLeft="Date"
-                        name="date"
-                        className="date"
-                        date="date"
-                        value={props.formData.decleration.date || ''}
+                        titleLeft="Signature"
+                        name="signature"
+                        className="signature"
+                        value={props.formData.decleration.signature || ''}
+                        onChange={handleChange}
+                        required="required" />
+                    <div className="flexLabels">
+                        <SideLabelLeft
+                            titleLeft="Full Name"
+                            name="full_name"
+                            className="fullName"
+                            value={props.formData.decleration.full_name || ''}
+                            onChange={handleChange}
+                            required="required" />
+                        <SideLabelLeft
+                            titleLeft="Date"
+                            name="date"
+                            className="date"
+                            date="date"
+                            value={props.formData.decleration.date || ''}
+                            onChange={handleChange}
+                            required="required" />
+                    </div>
+                    <FieldInput
+                        title="Additional Comments"
+                        name="additional_comments"
+                        value={props.formData.decleration.additional_comments || ''}
+                        className="additionalComments"
                         onChange={handleChange} />
                 </div>
-                <FieldInput
-                    title="Additional Comments"
-                    name="additional_comments"
-                    value={props.formData.decleration.additional_comments || ''}
-                    className="additionalComments"
-                    onChange={handleChange} />
-            </div>
 
-            <div id="notice">
-                <div className="noticeParagraph">
-                    <p>
-                        <i>
-                            Please note the application fee of £180.00 is none refundable, is it therefore imperative
-                            the information entered is correct.
-                            The application fee is a one off fee to allow Thomas James Estates to conduct the administration
-                            on behalf of the Landlord.
-                            It is seperate from the Holding Deposit which should have been specified for you.
-                            Please note, any holding deposit is also none refundable due to any non-disclosure of relevant
-                            information supporting this application.
+                <div id="notice">
+                    <div className="noticeParagraph">
+                        <p>
+                            <i>
+                                Please note the application fee of £180.00 is none refundable, is it therefore imperative
+                                the information entered is correct.
+                                The application fee is a one off fee to allow Thomas James Estates to conduct the administration
+                                on behalf of the Landlord.
+                                It is seperate from the Holding Deposit which should have been specified for you.
+                                Please note, any holding deposit is also none refundable due to any non-disclosure of relevant
+                                information supporting this application.
                         </i>
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="buttonContainer">
+                <input type="submit" placeholder="Submit Form" className="submitFormButton" name="submit" />
+            </div>
+            <div className="toggleButtonsContainer">
+                <button onClick={props.prev} style={{ visibility: props.isHidden.previous }}>Previous</button>
+            </div>
+        </form>
     )
 };
 

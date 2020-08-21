@@ -5,6 +5,11 @@ import Checkbox from '../inputs/Checkbox';
 
 
 const SectionThree = (props) => {
+
+  const address_1_checkbox_names = ['has_been_declared_bankrupt_a', 'has_been_declared_bankrupt_b', 'has_been_declared_bankrupt_c'];
+  const address_2_checkbox_names = ['has_ever_entered_into_an_IVA_a', 'has_ever_entered_into_an_IVA_b', 'has_ever_entered_into_an_IVA_c'];
+  const address_3_checkbox_names = ['has_rented_a_property_in_the_past_a', 'has_rented_a_property_in_the_past_b', 'has_rented_a_property_in_the_past_c'];
+
   const handleChange = (e) => {
 
     inputNames.bankAccount_names.forEach(name => {
@@ -17,6 +22,13 @@ const SectionThree = (props) => {
       let dummy_7 = Object.assign({}, props.formData.references);
       let dummy_8 = Object.assign({}, props.formData.emergencyContact);
       let dummy_9 = Object.assign({}, props.formData.decleration);
+
+      // address_1_checkbox_names.forEach(name => {
+      //   if (e.target.value === name) {
+      //     dummy_3.declared_bankrupt[e.target.name] = e.target.value;
+      //   }
+      // })
+
       dummy_3[e.target.name] = e.target.value;
       props.setFormData({
         personalDetails: dummy_1,
@@ -48,20 +60,20 @@ const SectionThree = (props) => {
               <Checkbox
                 type="checkbox"
                 name="has_been_declared_bankrupt_a"
-                defaultChecked={props.formData.creditCheck.has_been_declared_bankrupt_a}
+                defaultChecked={props.formData.creditCheck.declared_bankrupt.has_been_declared_bankrupt_a}
                 value="yes"
                 label="Yes"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_been_declared_bankrupt_b"
-                defaultChecked={props.formData.creditCheck.has_been_declared_bankrupt_b}
+                defaultChecked={props.formData.creditCheck.declared_bankrupt.has_been_declared_bankrupt_b}
                 value="no" label="No"
                 onChange={handleChange} />
               <Checkbox
                 type="checkbox"
                 name="has_been_declared_bankrupt_c"
-                defaultChecked={props.formData.creditCheck.has_been_declared_bankrupt_c}
+                defaultChecked={props.formData.creditCheck.declared_bankrupt.has_been_declared_bankrupt_c}
                 value="prefer not to answer"
                 label="Prefer not to answer"
                 onChange={handleChange} />

@@ -15,7 +15,19 @@ const SectionOne = (props) => {
         let dummy_7 = Object.assign({}, props.formData.references);
         let dummy_8 = Object.assign({}, props.formData.emergencyContact);
         let dummy_9 = Object.assign({}, props.formData.decleration);
-        dummy_1[e.target.name] = e.target.value;
+
+        if (e.target.name === 'years' || e.target.name === 'months') {
+            dummy_1.address.time_at_address[e.target.name] = e.target.value;
+        }
+        else if (e.target.name === 'street') {
+            dummy_1.address.street = e.target.value;
+        }
+        else if (e.target.name === 'postcode') {
+            dummy_1.address.postcode = e.target.value;
+        }
+        else {
+            dummy_1[e.target.name] = e.target.value;
+        }
         props.setFormData({
             personalDetails: dummy_1,
             addressHistory: dummy_2,
@@ -70,8 +82,8 @@ const SectionOne = (props) => {
                         <div className="rowTwo">
                             <FieldInput title="Current Address"
                                 className="currentAddress"
-                                name="current_address"
-                                value={props.formData.personalDetails.current_address || ''}
+                                name="street"
+                                value={props.formData.personalDetails.address.street || ''}
                                 onChange={handleChange}
                                 required="required" />
                         </div>
@@ -80,7 +92,7 @@ const SectionOne = (props) => {
                                 title="Postcode"
                                 className="postCode"
                                 name="postcode"
-                                value={props.formData.personalDetails.postcode || ''}
+                                value={props.formData.personalDetails.address.postcode || ''}
                                 onChange={handleChange}
                                 required="required" />
                             <p>Time at above address</p>
@@ -89,14 +101,14 @@ const SectionOne = (props) => {
                                     titleRight="Years"
                                     className="years"
                                     name="years"
-                                    value={props.formData.personalDetails.years || ''}
+                                    value={props.formData.personalDetails.address.time_at_address.years || ''}
                                     onChange={handleChange}
                                     required="required" />
                                 <SideLabelRight
                                     titleRight="Months"
                                     className="months"
                                     name="months"
-                                    value={props.formData.personalDetails.months || ''}
+                                    value={props.formData.personalDetails.address.time_at_address.months || ''}
                                     onChange={handleChange}
                                     required="required" />
                             </div>

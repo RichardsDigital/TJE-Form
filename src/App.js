@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
@@ -20,9 +20,39 @@ function App() {
   });
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
-    personalDetails: {},
-    addressHistory: {},
-    creditCheck: {},
+    personalDetails: {
+      address: {
+        street: null,
+        postcode: null,
+        time_at_address: {}
+      }
+    },
+    addressHistory: {
+      address_1: {
+        street: null,
+        postcode: null,
+        type: null,
+        time_at_address: {}
+      },
+      address_2: {
+        street: null,
+        postcode: null,
+        type: null,
+        time_at_address: {}
+      },
+      address_3: {
+        street: null,
+        postcode: null,
+        type: null,
+        time_at_address: {}
+      }
+    },
+    creditCheck: {
+      declared_bankrupt: {},
+      entered_IVA: {},
+      propery_rent: {},
+      arrears_landlord: {}
+    },
     bankAccount: {},
     employment: {},
     otherOccupants: {},
@@ -41,6 +71,8 @@ function App() {
     if (pageIndex === 2) {
       setIsHidden({previous: 'hidden'});
     }
+
+    scrollToTop();
   }
 
   const next = () => {
@@ -51,11 +83,13 @@ function App() {
     if (pageIndex === 7) {
       setIsHidden({next: 'hidden'});
     }
+
+    scrollToTop();
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  })
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
 
   // // Log data once state updates --------------------
 

@@ -123,8 +123,8 @@
     // Section Two ------------------------------------------------------------- //
 
     #sectionTwo .addressRow {
-        background-color: #f5f5f5;
-        border-bottom: 1px solid #adadad;
+        background-color: #eeeeee;
+        margin-bottom: 20px;
         padding: 20px;
         display: grid;
         grid-template-rows: 1fr 1fr;
@@ -245,8 +245,12 @@
         justify-content: center;
     }
     .submitFormButton {
+        background-color: rgb(238, 238, 238);
         margin: 50px;
         padding: 10px 100px;
         width: 100%;
+    }
+    .submitFormButton:hover {
+        background-color: rgb(216, 216, 216);
     }
 }

@@ -15,7 +15,50 @@ const SectionTwo = (props) => {
         let dummy_7 = Object.assign({}, props.formData.references);
         let dummy_8 = Object.assign({}, props.formData.emergencyContact);
         let dummy_9 = Object.assign({}, props.formData.decleration);
-        dummy_2[e.target.name] = e.target.value;
+
+        if (e.target.name === 'years_1' || e.target.name === 'months_1') {
+            dummy_2.address_1.time_at_address[e.target.name] = e.target.value;
+        }
+        else if (e.target.name === 'street_1') {
+            dummy_2.address_1.street = e.target.value;
+        }
+        else if (e.target.name === 'postcode_1') {
+            dummy_2.address_1.postcode = e.target.value;
+        }
+        else if (e.target.name === 'type_1') {
+            dummy_2.address_1.type = e.target.value;
+        }
+
+        else if (e.target.name === 'years_2' || e.target.name === 'months_2') {
+            dummy_2.address_2.time_at_address[e.target.name] = e.target.value;
+        }
+        else if (e.target.name === 'street_2') {
+            dummy_2.address_2.street = e.target.value;
+        }
+        else if (e.target.name === 'postcode_2') {
+            dummy_2.address_2.postcode = e.target.value;
+        }
+        else if (e.target.name === 'type_2') {
+            dummy_2.address_2.type = e.target.value;
+        }
+
+        else if (e.target.name === 'years_3' || e.target.name === 'months_3') {
+            dummy_2.address_3.time_at_address[e.target.name] = e.target.value;
+        }
+        else if (e.target.name === 'street_3') {
+            dummy_2.address_3.street = e.target.value;
+        }
+        else if (e.target.name === 'postcode_3') {
+            dummy_2.address_3.postcode = e.target.value;
+        }
+        else if (e.target.name === 'type_3') {
+            dummy_2.address_3.type = e.target.value;
+        }
+
+        else {
+            dummy_2[e.target.name] = e.target.value;
+        }
+
         props.setFormData({
             personalDetails: dummy_1,
             addressHistory: dummy_2,
@@ -38,8 +81,8 @@ const SectionTwo = (props) => {
                 <div className="addressRow">
                     <FieldInput
                         className="previousAddressA"
-                        name="previous_address_1"
-                        value={props.formData.addressHistory.previous_address_1}
+                        name="street_1"
+                        value={props.formData.addressHistory.address_1.street_1}
                         title="Previous Address 1"
                         onChange={handleChange} />
                     <div className="flexLabels">
@@ -47,13 +90,13 @@ const SectionTwo = (props) => {
                             titleRight="Years"
                             className="yearsA"
                             name="years_1"
-                            value={props.formData.addressHistory.years_1}
+                            value={props.formData.addressHistory.address_1.time_at_address.years_1}
                             onChange={handleChange} />
                         <SideLabelRight
                             titleRight="Months"
                             className="monthsA"
                             name="months_1"
-                            value={props.formData.addressHistory.months_1}
+                            value={props.formData.addressHistory.address_1.time_at_address.months_1}
                             onChange={handleChange} />
                     </div>
                     <StandardInput
@@ -65,14 +108,14 @@ const SectionTwo = (props) => {
                     <StandardInput
                         className="typeA"
                         name="type_1"
-                        value={props.formData.addressHistory.type_1}
+                        value={props.formData.addressHistory.address_1.type_1}
                         title="Type" onChange={handleChange} />
                 </div>
 
                 <div className="addressRow">
                     <FieldInput
                         className="previousAddressB"
-                        name="previous_address_2"
+                        name="street_2"
                         value={props.formData.addressHistory.previous_address_2}
                         title="Previous Address 2"
                         onChange={handleChange} />
@@ -92,13 +135,13 @@ const SectionTwo = (props) => {
                     </div>
                     <StandardInput
                         className="postCodeB"
-                        name="post_code_2"
+                        name="postcode_2"
                         value={props.formData.addressHistory.post_code_2}
                         title="Post Code" onChange={handleChange} />
                     <StandardInput
                         className="typeB"
                         name="type_2"
-                        value={props.formData.addressHistory.type_2}
+                        value={props.formData.addressHistory.address_1.type_2}
                         title="Type"
                         onChange={handleChange} />
                 </div>
@@ -106,7 +149,7 @@ const SectionTwo = (props) => {
                 <div className="addressRow">
                     <FieldInput
                         className="previousAddressC"
-                        name="previous_address_3"
+                        name="street_3"
                         value={props.formData.addressHistory.previous_address_3}
                         title="Previous Address 3"
                         onChange={handleChange} />
@@ -133,6 +176,7 @@ const SectionTwo = (props) => {
                     <StandardInput
                         className="typeC"
                         name="type_3"
+                        value={props.formData.addressHistory.address_1.type_3}
                         title="Type"
                         onChange={handleChange} />
                 </div>

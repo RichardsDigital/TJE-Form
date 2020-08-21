@@ -94,7 +94,7 @@ function App() {
   // // Log data once state updates --------------------
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(formData);
   }
 

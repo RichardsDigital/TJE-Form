@@ -1,5 +1,4 @@
 import React from 'react';
-import inputNames from '../../sharedData/inputNames';
 import StandardInput from '../inputs/StandardInput';
 import Checkbox from '../inputs/Checkbox';
 

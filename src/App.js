@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
 import './styles/global.scss';
 
@@ -52,6 +52,10 @@ function App() {
       setIsHidden({next: 'hidden'});
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
 
   // // Log data once state updates --------------------
 

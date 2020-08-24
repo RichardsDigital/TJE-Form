@@ -42,135 +42,144 @@ const SectionOne = (props) => {
     }
 
     return (
-        <div id="sectionOne">
-            <div className="contentContainer">
+        <form onSubmit={props.validate}>
+            <div id="sectionOne">
+                <div className="contentContainer">
 
-                <h1>Section One - Personal Details</h1>
+                    <h1>Section One - Personal Details</h1>
 
-                <div className="rowOne">
-                    <StandardInput
-                        title="Title"
-                        className="title"
-                        name="title"
-                        value={props.formData.personalDetails.title || ''}
-                        onChange={handleChange}
-                        required="required" />
-                    <StandardInput
-                        title="Forename"
-                        className="forename"
-                        name="forename"
-                        value={props.formData.personalDetails.forename || ''}
-                        onChange={handleChange}
-                        required="required" />
-                    <StandardInput
-                        title="Middle name"
-                        className="middlename"
-                        name="middlename"
-                        value={props.formData.personalDetails.middlename || ''}
-                        onChange={handleChange} />
-                    <StandardInput
-                        title="Surname"
-                        className="surname"
-                        name="surname"
-                        value={props.formData.personalDetails.surname || ''}
-                        onChange={handleChange}
-                        required="required" />
-                </div>
+                    <div className="rowOne">
+                        <StandardInput
+                            title="Title"
+                            className="title"
+                            name="title"
+                            value={props.formData.personalDetails.title || ''}
+                            onChange={handleChange}
+                            required="required" />
+                        <StandardInput
+                            title="Forename"
+                            className="forename"
+                            name="forename"
+                            value={props.formData.personalDetails.forename || ''}
+                            onChange={handleChange}
+                            required="required" />
+                        <StandardInput
+                            title="Middle name"
+                            className="middlename"
+                            name="middlename"
+                            value={props.formData.personalDetails.middlename || ''}
+                            onChange={handleChange} />
+                        <StandardInput
+                            title="Surname"
+                            className="surname"
+                            name="surname"
+                            value={props.formData.personalDetails.surname || ''}
+                            onChange={handleChange}
+                            required="required" />
+                    </div>
 
-                <div className="contentColumn">
-                    <div className="col-1">
-                        <div className="rowTwo">
-                            <FieldInput title="Current Address"
-                                className="currentAddress"
-                                name="street"
-                                value={props.formData.personalDetails.address.street || ''}
-                                onChange={handleChange}
-                                required="required" />
-                        </div>
-                        <div className="rowThree">
-                            <StandardInput
-                                title="Postcode"
-                                className="postCode"
-                                name="postcode"
-                                value={props.formData.personalDetails.address.postcode || ''}
-                                onChange={handleChange}
-                                required="required" />
-                            <p>Time at above address</p>
-                            <div className="flexLabels">
-                                <SideLabelRight
-                                    titleRight="Years"
-                                    className="years"
-                                    name="years"
-                                    value={props.formData.personalDetails.address.time_at_address.years || ''}
+                    <div className="contentColumn">
+                        <div className="col-1">
+                            <div className="rowTwo">
+                                <FieldInput
+                                    title="Current Address"
+                                    className="currentAddress"
+                                    name="street"
+                                    value={props.formData.personalDetails.address.street || ''}
                                     onChange={handleChange}
                                     required="required" />
-                                <SideLabelRight
-                                    titleRight="Months"
-                                    className="months"
-                                    name="months"
-                                    value={props.formData.personalDetails.address.time_at_address.months || ''}
+                            </div>
+                            <div className="rowThree">
+                                <StandardInput
+                                    title="Postcode"
+                                    className="postCode"
+                                    name="postcode"
+                                    value={props.formData.personalDetails.address.postcode || ''}
+                                    onChange={handleChange}
+                                    required="required" />
+                                <p>Time at above address</p>
+                                <div className="flexLabels">
+                                    <SideLabelRight
+                                        titleRight="Years"
+                                        className="years"
+                                        name="years"
+                                        value={props.formData.personalDetails.address.time_at_address.years || ''}
+                                        onChange={handleChange}
+                                        required="required" />
+                                    <SideLabelRight
+                                        titleRight="Months"
+                                        className="months"
+                                        name="months"
+                                        value={props.formData.personalDetails.address.time_at_address.months || ''}
+                                        onChange={handleChange}
+                                        required="required" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-2">
+                            <div className="rowTwo">
+                                <div>
+                                    <StandardInput
+                                        title="Phone Number"
+                                        className="phoneNumber"
+                                        name="phone_number"
+                                        value={props.formData.personalDetails.phone_number || ''}
+                                        onChange={handleChange}
+                                        required="required" />
+                                    <StandardInput
+                                        title="Email Address"
+                                        className="emailAddress"
+                                        name="email_address"
+                                        value={props.formData.personalDetails.email_address || ''}
+                                        onChange={handleChange}
+                                        required="required" />
+                                </div>
+                            </div>
+                            <div className="rowThree">
+                                <StandardInput
+                                    title="Nationality"
+                                    className="nationality"
+                                    name="nationality"
+                                    value={props.formData.personalDetails.nationality || ''}
                                     onChange={handleChange}
                                     required="required" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="col-2">
-                        <div className="rowTwo">
-                            <div>
-                                <StandardInput
-                                    title="Phone Number"
-                                    className="phoneNumber"
-                                    name="phone_number"
-                                    value={props.formData.personalDetails.phone_number || ''}
-                                    onChange={handleChange}
-                                    required="required" />
-                                <StandardInput
-                                    title="Email Address"
-                                    className="emailAddress"
-                                    name="email_address"
-                                    value={props.formData.personalDetails.email_address || ''}
-                                    onChange={handleChange}
-                                    required="required" />
-                            </div>
-                        </div>
-                        <div className="rowThree">
-                            <StandardInput
-                                title="Nationality"
-                                className="nationality"
-                                name="nationality"
-                                value={props.formData.personalDetails.nationality || ''}
-                                onChange={handleChange}
-                                required="required" />
-                        </div>
+                    <div className="rowFive">
+                        <StandardInput
+                            title="National Insurance Number"
+                            className="niNumber"
+                            name="ni_number"
+                            value={props.formData.personalDetails.ni_number || ''}
+                            onChange={handleChange}
+                            required="required" />
+                        <StandardInput
+                            title="Required Tenancy Term"
+                            className="requiredTenancyTerm"
+                            name="required_tenancy_term"
+                            value={props.formData.personalDetails.required_tenancy_term || ''}
+                            onChange={handleChange}
+                            required="required" />
+                        <StandardInput
+                            title="Required move in date"
+                            className="requiredMoveInDate"
+                            name="required_move_in_date"
+                            value={props.formData.personalDetails.required_move_in_date || ''}
+                            onChange={handleChange}
+                            required="required" />
                     </div>
-                </div>
-
-                <div className="rowFive">
-                    <StandardInput
-                        title="National Insurance Number"
-                        className="niNumber"
-                        name="ni_number"
-                        value={props.formData.personalDetails.ni_number || ''}
-                        onChange={handleChange}
-                        required="required" />
-                    <StandardInput
-                        title="Required Tenancy Term"
-                        className="requiredTenancyTerm"
-                        name="required_tenancy_term"
-                        value={props.formData.personalDetails.required_tenancy_term || ''}
-                        onChange={handleChange}
-                        required="required" />
-                    <StandardInput
-                        title="Required move in date"
-                        className="requiredMoveInDate"
-                        name="required_move_in_date"
-                        value={props.formData.personalDetails.required_move_in_date || ''}
-                        onChange={handleChange}
-                        required="required" />
                 </div>
             </div>
-        </div>
+
+            <div className="toggleButtonsContainer">
+                <button onClick={props.prev} style={{ visibility: props.isHidden.previous }}>Previous</button>
+                <button type="submit" style={{ visibility: props.isHidden.next }}>Next</button>
+            </div>
+
+        </form>
     )
 };
 

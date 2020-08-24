@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import SectionThreeBankDetails from './components/formSections/SectionThreeBankDetails';
+import React, { useState } from 'react';
 import './styles/global.scss';
 
 import Header from './components/partials/Header';
@@ -13,7 +12,6 @@ import SectionSeven from './components/formSections/SectionSeven';
 import SectionEight from './components/formSections/SectionEight';
 
 function App() {
-  const node = useRef();
   const [isHidden, setIsHidden] = useState({
     previous: 'hidden',
     next: null
@@ -48,15 +46,50 @@ function App() {
       }
     },
     creditCheck: {
-      declared_bankrupt: {},
-      entered_IVA: {},
-      propery_rent: {},
-      arrears_landlord: {}
+      declared_bankrupt: {
+        has_been_declared_bankrupt: null,
+        details: null
+      },
+      entered_IVA: {
+        has_ever_entered_into_an_IVA: null,
+        details: null
+      },
+      propery_rent: {
+        has_rented_a_property_in_the_past: null,
+        details: null
+      },
+      arrears_landlord: {
+        has_been_in_arrears_with_another_landlord: null,
+        details: null
+      },
+      named_on_morgage: {
+        has_been_a_named_person_on_morgage: null,
+        details: null
+      },
+      CJJs: {
+        has_had_any_CJJs: null,
+        details: null
+      }
     },
     bankAccount: {},
     employment: {},
     otherOccupants: {},
-    references: {},
+    references: {
+      referee_1: {
+        name: null,
+        contact_number: null,
+        address: null,
+        postcode: null,
+        relation: null,
+      },
+      referee_2: {
+        name: null,
+        contact_number: null,
+        address: null,
+        postcode: null,
+        relation: null,
+      }
+    },
     emergencyContact: {},
     decleration: {}
   });
@@ -66,25 +99,38 @@ function App() {
   const prev = () => {
     if (pageIndex <= 8 && pageIndex > 1) {
       setPageIndex(pageIndex - 1);
-      setIsHidden({next: 'visible'});
-    } 
-    if (pageIndex === 2) {
-      setIsHidden({previous: 'hidden'});
+      setIsHidden({ next: 'visible' });
     }
-
+    if (pageIndex === 2) {
+      setIsHidden({ previous: 'hidden' });
+    }
     scrollToTop();
+  }
+
+  const validate = (e) => {
+    if (pageIndex === 8) {
+      e.preventDefault();
+      console.log(formData);
+    }
+    else {
+      e.preventDefault();
+      next();
+    }
   }
 
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
       setPageIndex(pageIndex + 1);
-      setIsHidden({previous: 'visible'});
-    } 
+      setIsHidden({ previous: 'visible' });
+    }
     if (pageIndex === 7) {
+<<<<<<< HEAD
       setIsHidden({next: 'hidden'});
       handleSubmit();
+=======
+      setIsHidden({ next: 'hidden' });
+>>>>>>> a21a3747696037525ab0149804ecff108de07cc0
     }
-
     scrollToTop();
   }
 
@@ -94,61 +140,50 @@ function App() {
 
   // // Log data once state updates --------------------
 
+<<<<<<< HEAD
   const handleSubmit = (e) => {
     console.log(formData);
   }
 
+=======
+>>>>>>> a21a3747696037525ab0149804ecff108de07cc0
   return (
     <div className="App">
-      <form>
-        <Header />
+      <Header />
 
-        {pageIndex === 1 ?
-          <SectionOne formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 1 ?
+        <SectionOne formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 2 ?
-          <SectionTwo formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 2 ?
+        <SectionTwo formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 3 ?
-          <div>
-            <SectionThree formData={formData} setFormData={setFormData} />
-            <SectionThreeBankDetails formData={formData} setFormData={setFormData} />
-          </div>
-          : null}
+      {pageIndex === 3 ?
+        <div>
+          <SectionThree formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        </div>
+        : null}
 
-        {pageIndex === 4 ?
-          <SectionFour formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 4 ?
+        <SectionFour formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 5 ?
-          <SectionFive formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 5 ?
+        <SectionFive formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 6 ?
-          <SectionSix formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 6 ?
+        <SectionSix formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 7 ?
-          <SectionSeven formData={formData} setFormData={setFormData} />
-          : null}
+      {pageIndex === 7 ?
+        <SectionSeven formData={formData} setFormData={setFormData} prev={prev} next={next} isHidden={isHidden} validate={validate} />
+        : null}
 
-        {pageIndex === 8 ?
-          <div>
-            <SectionEight formData={formData} setFormData={setFormData} />
-            <div className="buttonContainer">
-              <input type="submit" placeholder="Submit Form" className="submitFormButton" onClick={handleSubmit} />
-            </div>
-          </div>
-          : null}
-
-      </form>
-
-      <div className="toggleButtonsContainer">
-        <button onClick={prev} style={{visibility: isHidden.previous}}>Previous</button>
-        <button onClick={next} ref={node} style={{visibility: isHidden.next}}>Next</button>
-      </div>
+      {pageIndex === 8 ?
+        <SectionEight formData={formData} setFormData={setFormData} prev={prev} isHidden={isHidden} validate={validate} />
+        : null}
 
     </div>
   );

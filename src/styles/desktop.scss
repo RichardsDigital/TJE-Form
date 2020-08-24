@@ -80,7 +80,6 @@
     #sectionSix,
     #sectionSeven,
     #sectionEight,
-    #bankAccount,
     #notice {
         background-color: white;
         max-width: 1650px;
@@ -210,11 +209,15 @@
     #bankAccount .bankAccountContainer {
         min-width: 752px;
         width: 60%;
+        margin-top: 20px;
         padding: 50px 0 50px 50px;
         @media screen and (max-width: 1354px) {
             padding: 2%;
         }
         background-color: rgb(245, 245, 245);
+    }
+    #bankAccount .row .lower, #bankAccount .row .upper {
+        background-color: transparent;
     }
     #bankAccount .accountName, #bankAccount .accountNumber {
         width: 130px;

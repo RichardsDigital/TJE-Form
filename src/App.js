@@ -16,7 +16,7 @@ function App() {
     previous: 'hidden',
     next: null
   });
-  const [pageIndex, setPageIndex] = useState(1);
+  const [pageIndex, setPageIndex] = useState(8);
   const [formData, setFormData] = useState({
     personalDetails: {
       address: {
@@ -110,13 +110,34 @@ function App() {
   const validate = (e) => {
     if (pageIndex === 8) {
       e.preventDefault();
-      console.log(formData);
+
+      fetch('http://localhost:5000/post', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: formData
+        })
+      }).then(res => res.json())
+      .then(
+        data => {
+          console.log('success', data);
+        }
+      ).catch((err) => {
+        console.log(err);
+      })
+
+      // console.log(formData);
     }
     else {
       e.preventDefault();
       next();
     }
   }
+  
 
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
@@ -124,12 +145,7 @@ function App() {
       setIsHidden({ previous: 'visible' });
     }
     if (pageIndex === 7) {
-<<<<<<< HEAD
-      setIsHidden({next: 'hidden'});
-      handleSubmit();
-=======
       setIsHidden({ next: 'hidden' });
->>>>>>> a21a3747696037525ab0149804ecff108de07cc0
     }
     scrollToTop();
   }
@@ -140,13 +156,6 @@ function App() {
 
   // // Log data once state updates --------------------
 
-<<<<<<< HEAD
-  const handleSubmit = (e) => {
-    console.log(formData);
-  }
-
-=======
->>>>>>> a21a3747696037525ab0149804ecff108de07cc0
   return (
     <div className="App">
       <Header />

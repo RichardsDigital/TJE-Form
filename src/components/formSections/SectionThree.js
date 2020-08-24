@@ -11,9 +11,9 @@ const SectionThree = (props) => {
   const bankrupt_checkbox_names = ['has_been_declared_bankrupt_a', 'has_been_declared_bankrupt_b', 'has_been_declared_bankrupt_c'];
   const IVA_checkbox_names = ['has_ever_entered_into_an_IVA_a', 'has_ever_entered_into_an_IVA_b', 'has_ever_entered_into_an_IVA_c'];
   const rented_property_checkbox_names = ['has_rented_a_property_in_the_past_a', 'has_rented_a_property_in_the_past_b', 'has_rented_a_property_in_the_past_c'];
-  const landlord_arrears_names = ['has_been_in_arrears_with_another_landlord_a', 'has_been_in_arrears_with_another_landlord_b', 'has_been_in_arrears_with_another_landlord_c'];
-  const morgage_names = ['has_been_a_named_person_on_morgage_a', 'has_been_a_named_person_on_morgage_b', 'has_been_a_named_person_on_morgage_c'];
-  const CJJs_names = ['has_had_any_CJJs_a', 'has_had_any_CJJs_b', 'has_had_any_CJJs_c'];
+  const landlord_arrears_checkbox_names = ['has_been_in_arrears_with_another_landlord_a', 'has_been_in_arrears_with_another_landlord_b', 'has_been_in_arrears_with_another_landlord_c'];
+  const morgage_checkbox_names = ['has_been_a_named_person_on_morgage_a', 'has_been_a_named_person_on_morgage_b', 'has_been_a_named_person_on_morgage_c'];
+  const CJJs_checkbox_names = ['has_had_any_CJJs_a', 'has_had_any_CJJs_b', 'has_had_any_CJJs_c'];
 
   const handleChange = (e) => {
 
@@ -42,17 +42,17 @@ const SectionThree = (props) => {
         dummy_3.propery_rent.has_rented_a_property_in_the_past = e.target.value;
       }
     });
-    landlord_arrears_names.forEach(name => {
+    landlord_arrears_checkbox_names.forEach(name => {
       if (e.target.name === name) {
         dummy_3.arrears_landlord.has_been_in_arrears_with_another_landlord = e.target.value;
       }
     });
-    morgage_names.forEach(name => {
+    morgage_checkbox_names.forEach(name => {
       if (e.target.name === name) {
         dummy_3.named_on_morgage.has_been_a_named_person_on_morgage = e.target.value;
       }
     });
-    CJJs_names.forEach(name => {
+    CJJs_checkbox_names.forEach(name => {
       if (e.target.name === name) {
         dummy_3.CJJs.has_had_any_CJJs = e.target.value;
       }

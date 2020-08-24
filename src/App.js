@@ -82,6 +82,7 @@ function App() {
     } 
     if (pageIndex === 7) {
       setIsHidden({next: 'hidden'});
+      handleSubmit();
     }
 
     scrollToTop();
@@ -94,7 +95,6 @@ function App() {
   // // Log data once state updates --------------------
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
     console.log(formData);
   }
 

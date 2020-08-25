@@ -16,7 +16,7 @@ function App() {
     previous: 'hidden',
     next: null
   });
-  const [pageIndex, setPageIndex] = useState(8);
+  const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     personalDetails: {
       address: {
@@ -113,7 +113,6 @@ function App() {
 
       fetch('http://localhost:5000/post', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -121,16 +120,15 @@ function App() {
         body: JSON.stringify({
           data: formData
         })
-      }).then(res => res.json())
-      .then(
+      }).then(res => res.json()).then(
         data => {
           console.log('success', data);
         }
       ).catch((err) => {
         console.log(err);
-      })
+      });
 
-      // console.log(formData);
+      console.log(formData);
     }
     else {
       e.preventDefault();

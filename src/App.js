@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './styles/global.scss';
 
 import Header from './components/partials/Header';
@@ -109,26 +110,10 @@ function App() {
 
   const validate = (e) => {
     if (pageIndex === 8) {
-      e.preventDefault();
-
-      fetch('http://localhost:5000/post', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          data: formData
-        })
-      }).then(res => res.json()).then(
-        data => {
-          console.log('success', data);
-        }
-      ).catch((err) => {
-        console.log(err);
-      });
-
+      e.preventDefault(); 
       console.log(formData);
+      axios.post('http://localhost:5000/formData', (formData))
+      .then((res) => {console.log(res)});
     }
     else {
       e.preventDefault();

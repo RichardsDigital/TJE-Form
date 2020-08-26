@@ -21,7 +21,7 @@ function App() {
   const[loader, setLoader] = useState(false);
   const[Success, setSuccess] = useState(false);
   //Ensure when in production pageIndex State starts at 1, not 8
-  const [pageIndex, setPageIndex] = useState(8);
+  const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     personalDetails: {
       address: {

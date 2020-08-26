@@ -50,7 +50,7 @@ input[type="checkbox"] {
         margin-top: 80px;
     }
 }
-.toggleButtonsContainer button {
+.toggleButtonsContainer button, .successPageContainer button  {
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -58,7 +58,7 @@ input[type="checkbox"] {
     padding: 5px;
     margin: 10px;
 }
-.toggleButtonsContainer button:hover {
+.toggleButtonsContainer button:hover, .successPageContainer button:hover {
     border: 1px solid rgba(0, 0, 0, 1);
 }
 

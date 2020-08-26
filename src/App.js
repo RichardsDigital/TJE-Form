@@ -11,13 +11,14 @@ import SectionFive from './components/formSections/SectionFive';
 import SectionSix from './components/formSections/SectionSix';
 import SectionSeven from './components/formSections/SectionSeven';
 import SectionEight from './components/formSections/SectionEight';
+import SuccessPage from './components/formSections/SuccessPage';
 
 function App() {
   const [isHidden, setIsHidden] = useState({
     previous: 'hidden',
     next: null
   });
-  const [pageIndex, setPageIndex] = useState(1);
+  const [pageIndex, setPageIndex] = useState(9);
   const [formData, setFormData] = useState({
     personalDetails: {
       address: {
@@ -110,17 +111,17 @@ function App() {
 
   const validate = (e) => {
     if (pageIndex === 8) {
-      e.preventDefault(); 
+      e.preventDefault();
       console.log(formData);
       axios.post('http://localhost:5000/formData', (formData))
-      .then((res) => {console.log(res)});
+        .then((res) => { console.log(res) });
     }
     else {
       e.preventDefault();
       next();
     }
   }
-  
+
 
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
@@ -175,6 +176,10 @@ function App() {
 
       {pageIndex === 8 ?
         <SectionEight formData={formData} setFormData={setFormData} prev={prev} isHidden={isHidden} validate={validate} />
+        : null}
+
+      {pageIndex === 9 ?
+        <SuccessPage/>
         : null}
 
     </div>

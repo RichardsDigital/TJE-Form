@@ -13,7 +13,7 @@ const SuccessPage = () => {
                         <polyline id="successAnimationCheck" stroke="#979797" strokeWidth="2" points="23 34 34 43 47 27" fill="transparent" />
                     </svg>
 
-                    <button style={{ marginTop: '40px', padding: '10px'}} onClick={() => {window.open('https://www.richards-digital.com')}}>Return to homepage</button>
+                    <button style={{ marginTop: '40px', padding: '10px'}} onClick={() => {window.location.replace('https://thomasjamesestates.vercel.app/')}}>Return to homepage</button>
                 </div>
             </div>
         </div>

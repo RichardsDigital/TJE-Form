@@ -83,7 +83,7 @@ const SectionTwo = (props) => {
                         <FieldInput
                             className="previousAddressA"
                             name="street_1"
-                            value={props.formData.addressHistory.address_1.street_1}
+                            value={props.formData.addressHistory.address_1.street_1 || ''}
                             title="Previous Address 1"
                             onChange={handleChange} />
                         <div className="flexLabels">
@@ -91,25 +91,25 @@ const SectionTwo = (props) => {
                                 titleRight="Years"
                                 className="yearsA"
                                 name="years_1"
-                                value={props.formData.addressHistory.address_1.time_at_address.years_1}
+                                value={props.formData.addressHistory.address_1.time_at_address.years_1 || ''}
                                 onChange={handleChange} />
                             <SideLabelRight
                                 titleRight="Months"
                                 className="monthsA"
                                 name="months_1"
-                                value={props.formData.addressHistory.address_1.time_at_address.months_1}
+                                value={props.formData.addressHistory.address_1.time_at_address.months_1 || ''}
                                 onChange={handleChange} />
                         </div>
                         <StandardInput
                             className="postCodeA"
                             name="postcode_1"
-                            value={props.formData.addressHistory.postcode_1}
+                            value={props.formData.addressHistory.postcode_1 || ''}
                             title="Post Code"
                             onChange={handleChange} />
                         <StandardInput
                             className="typeA"
                             name="type_1"
-                            value={props.formData.addressHistory.address_1.type_1}
+                            value={props.formData.addressHistory.address_1.type_1 || ''}
                             title="Type" onChange={handleChange} />
                     </div>
 
@@ -117,7 +117,7 @@ const SectionTwo = (props) => {
                         <FieldInput
                             className="previousAddressB"
                             name="street_2"
-                            value={props.formData.addressHistory.previous_address_2}
+                            value={props.formData.addressHistory.previous_address_2 || ''}
                             title="Previous Address 2"
                             onChange={handleChange} />
                         <div className="flexLabels">
@@ -125,24 +125,24 @@ const SectionTwo = (props) => {
                                 titleRight="Years"
                                 className="yearsB"
                                 name="years_2"
-                                value={props.formData.addressHistory.years_2}
+                                value={props.formData.addressHistory.years_2 || ''}
                                 onChange={handleChange} />
                             <SideLabelRight
                                 titleRight="Months"
                                 className="monthsB"
                                 name="months_2"
-                                value={props.formData.addressHistory.months_2}
+                                value={props.formData.addressHistory.months_2 || ''}
                                 onChange={handleChange} />
                         </div>
                         <StandardInput
                             className="postCodeB"
                             name="postcode_2"
-                            value={props.formData.addressHistory.post_code_2}
+                            value={props.formData.addressHistory.post_code_2 || ''}
                             title="Post Code" onChange={handleChange} />
                         <StandardInput
                             className="typeB"
                             name="type_2"
-                            value={props.formData.addressHistory.address_1.type_2}
+                            value={props.formData.addressHistory.address_1.type_2 || ''}
                             title="Type"
                             onChange={handleChange} />
                     </div>
@@ -151,7 +151,7 @@ const SectionTwo = (props) => {
                         <FieldInput
                             className="previousAddressC"
                             name="street_3"
-                            value={props.formData.addressHistory.previous_address_3}
+                            value={props.formData.addressHistory.previous_address_3 || ''}
                             title="Previous Address 3"
                             onChange={handleChange} />
                         <div className="flexLabels">
@@ -159,25 +159,25 @@ const SectionTwo = (props) => {
                                 titleRight="Years"
                                 className="yearsC"
                                 name="years_3"
-                                value={props.formData.addressHistory.years_3}
+                                value={props.formData.addressHistory.years_3 || ''}
                                 onChange={handleChange} />
                             <SideLabelRight
                                 titleRight="Months"
                                 className="monthsC"
                                 name="months_3"
-                                value={props.formData.addressHistory.months_3}
+                                value={props.formData.addressHistory.months_3 || ''}
                                 onChange={handleChange} />
                         </div>
                         <StandardInput
                             className="postCodeC"
                             name="postcode_3"
-                            value={props.formData.addressHistory.postcode_3}
+                            value={props.formData.addressHistory.postcode_3 || ''}
                             title="Post Code"
                             onChange={handleChange} />
                         <StandardInput
                             className="typeC"
                             name="type_3"
-                            value={props.formData.addressHistory.address_1.type_3}
+                            value={props.formData.addressHistory.address_1.type_3 || ''}
                             title="Type"
                             onChange={handleChange} />
                     </div>

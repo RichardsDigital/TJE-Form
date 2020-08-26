@@ -11,6 +11,7 @@ import SectionFive from './components/formSections/SectionFive';
 import SectionSix from './components/formSections/SectionSix';
 import SectionSeven from './components/formSections/SectionSeven';
 import SectionEight from './components/formSections/SectionEight';
+import SuccessPage from './components/formSections/SuccessPage';
 
 function App() {
   const [isHidden, setIsHidden] = useState({
@@ -18,6 +19,7 @@ function App() {
     next: null
   });
   const[loader, setLoader] = useState(false);
+  const[Success, setSuccess] = useState(false);
   //Ensure when in production pageIndex State starts at 1, not 8
   const [pageIndex, setPageIndex] = useState(8);
   const [formData, setFormData] = useState({
@@ -112,17 +114,21 @@ function App() {
 
   const validate = (e) => {
     setLoader(true);
+    setPageIndex(9);
     if (pageIndex === 8) {
-      e.preventDefault(); 
+      e.preventDefault();
       console.log(formData);
       axios.post('https://tje-be.herokuapp.com/post', (formData))
       .then((res) => {
 
         console.log(res);
-        console.log(res.status);
+        // console.log(res.status);
 
         if(res.status == 200){
-          setLoader(false);
+          setTimeout(() => {
+            setLoader(false);
+            setSuccess(true);
+          }, 500);
           
         }
       
@@ -133,7 +139,7 @@ function App() {
       next();
     }
   }
-  
+
 
   const next = () => {
     if (pageIndex < 8 && pageIndex >= 1) {
@@ -152,9 +158,9 @@ function App() {
 
   const Loader = () =>{
     return(
-    <div className="loader">
+    <div className="successPageContainer">
             <svg  xmlns="http://www.w3.org/2000/svg" styles="margin: auto; background: none; display: block; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-            <circle cx="50" cy="50" fill="none" stroke="#D41F58" strokeWidth="4" r="41" strokeDasharray="193.20794819577225 66.40264939859075">
+            <circle cx="50" cy="50" fill="none" stroke="#fbd46d" strokeWidth="4" r="41" strokeDasharray="193.20794819577225 66.40264939859075">
             <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
             </circle>
             </svg>
@@ -201,7 +207,14 @@ function App() {
         <SectionEight formData={formData} setFormData={setFormData} prev={prev} isHidden={isHidden} validate={validate} />
         : null}
 
-        
+      {pageIndex === 9 ?
+        <>
+          {loader? <Loader></Loader>:<SuccessPage/>}
+        </>
+        :
+        null
+      
+      }
 
     </div>
   );

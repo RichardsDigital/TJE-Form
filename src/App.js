@@ -19,7 +19,8 @@ function App() {
     next: null
   });
   const[loader, setLoader] = useState(false);
-  const[Success, setSuccess] = useState(false);
+  // const[success, setSuccess] = useState(false);
+
   //Ensure when in production pageIndex State starts at 1, not 8
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
@@ -124,10 +125,10 @@ function App() {
         console.log(res);
         // console.log(res.status);
 
-        if(res.status == 200){
+        if(res.status === 200){
           setTimeout(() => {
             setLoader(false);
-            setSuccess(true);
+            // setSuccess(true);
           }, 500);
           
         }

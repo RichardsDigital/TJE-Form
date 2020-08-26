@@ -17,7 +17,9 @@ function App() {
     previous: 'hidden',
     next: null
   });
-  const [pageIndex, setPageIndex] = useState(1);
+  const[loader, setLoader] = useState(false);
+  //Ensure when in production pageIndex State starts at 1, not 8
+  const [pageIndex, setPageIndex] = useState(8);
   const [formData, setFormData] = useState({
     personalDetails: {
       address: {
@@ -109,11 +111,22 @@ function App() {
   }
 
   const validate = (e) => {
+    setLoader(true);
     if (pageIndex === 8) {
       e.preventDefault(); 
       console.log(formData);
-      axios.post('http://localhost:5000/formData', (formData))
-      .then((res) => {console.log(res)});
+      axios.post('https://tje-be.herokuapp.com/post', (formData))
+      .then((res) => {
+
+        console.log(res);
+        console.log(res.status);
+
+        if(res.status == 200){
+          setLoader(false);
+          
+        }
+      
+      });
     }
     else {
       e.preventDefault();
@@ -135,6 +148,17 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  }
+
+  const Loader = () =>{
+    return(
+    <div className="loader">
+            <svg  xmlns="http://www.w3.org/2000/svg" styles="margin: auto; background: none; display: block; shape-rendering: auto;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke="#D41F58" strokeWidth="4" r="41" strokeDasharray="193.20794819577225 66.40264939859075">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+            </circle>
+            </svg>
+        </div>)
   }
 
   // // Log data once state updates --------------------
@@ -176,6 +200,8 @@ function App() {
       {pageIndex === 8 ?
         <SectionEight formData={formData} setFormData={setFormData} prev={prev} isHidden={isHidden} validate={validate} />
         : null}
+
+        
 
     </div>
   );
